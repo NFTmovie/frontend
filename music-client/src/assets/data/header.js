@@ -3,13 +3,13 @@ const navMsg = [{
   name: '首页',
   path: '/'
 }, {
-  name: '歌单',
+  name: '上映新片',
   path: '/song-list'
 }, {
-  name: '歌手',
+  name: '购买NFT',
   path: '/singer'
 }, {
-  name: '我的音乐',
+  name: '电影票',
   path: '/my-music'
 }]
 

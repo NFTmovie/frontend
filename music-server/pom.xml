@@ -11,7 +11,7 @@
     <groupId>com.example</groupId>
     <artifactId>yin</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>Yin-music</name>
+    <name>链影</name>
     <description>music-website project for Spring Boot</description>
 
     <properties>

@@ -2,10 +2,15 @@
   <div class="the-header">
     <!--图标-->
     <div class="header-logo" @click="goHome">
-      <svg class="icon" aria-hidden="true">
-        <use :xlink:href="ERJI"></use>
-      </svg>
-      <span>{{musicName}}</span>
+      <!--      <svg class="icon" aria-hidden="true">-->
+      <!--        <use :xlink:href="ERJI"></use>-->
+      <!--      </svg>-->
+      <img
+        alt="App-market"
+        height="70"
+        :src="require('@/assets/img/logo.jpg')"
+      />
+      <!--      <span>{{musicName}}</span>-->
     </div>
     <ul class="navbar" ref="change">
       <li :class="{active: item.name === activeName}" v-for="item in navMsg" :key="item.path" @click="goPage(item.path, item.name)">
@@ -13,7 +18,7 @@
       </li>
       <li>
         <div class="header-search">
-          <input type="text" placeholder="搜索音乐" @keyup.enter="goSearch()" v-model="keywords">
+          <input type="text" placeholder="搜索电影" @keyup.enter="goSearch()" v-model="keywords">
           <div class="search-btn"  @click="goSearch()" >
             <svg class="icon" aria-hidden="true">
               <use :xlink:href="SOUSUO"></use>
@@ -46,7 +51,7 @@ export default {
   mixins: [mixin],
   data () {
     return {
-      musicName: 'Yin-music',
+      musicName: '链影',
       navMsg: navMsg, // 左侧导航栏
       loginMsg: loginMsg, // 右侧导航栏
       menuList: menuList, // 用户下拉菜单项

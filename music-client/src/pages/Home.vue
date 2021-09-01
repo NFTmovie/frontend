@@ -8,7 +8,7 @@
     </el-carousel>
     <!--热门歌单-->
     <div class="section">
-      <div class="section-title">歌单</div>
+      <div class="section-title">电影列表</div>
       <content-list :contentList="songList" path="song-list-album"></content-list>
     </div>
     <!--热门歌手-->

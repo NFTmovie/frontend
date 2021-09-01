@@ -1,12 +1,12 @@
 // 轮播图
 const swiperList = [{
-  picImg: require('@/assets/img/swiper/blur-1851426_640.jpg')
+  picImg: require('@/assets/img/swiper/01.jpg')
 }, {
-  picImg: require('@/assets/img/swiper/concert-768722_640.jpg')
+  picImg: require('@/assets/img/swiper/02.jpg')
 }, {
-  picImg: require('@/assets/img/swiper/boy-984293_640.jpg')
+  picImg: require('@/assets/img/swiper/03.jpg')
 }, {
-  picImg: require('@/assets/img/swiper/ipad-605439_640.jpg')
+  picImg: require('@/assets/img/swiper/04.jpg')
 }, {
   picImg: require('@/assets/img/swiper/microphone-1209816_640.jpg')
 }, {
