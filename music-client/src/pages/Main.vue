@@ -1,12 +1,8 @@
 <template>
   <div>
-    <song-audio/>
     <the-header/>
-    <the-aside></the-aside>
     <router-view class="music-content"/>
-    <play-bar/>
     <scroll-top/>
-    <the-footer/>
   </div>
 </template>
 

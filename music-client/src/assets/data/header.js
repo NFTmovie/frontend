@@ -13,7 +13,7 @@ const navMsg = [{
   path: '/my-music'
 }]
 
-const dropMsg = [{
+export const dropUploadMsg = [{
   name: '上传影片信息',
   path: '/uploadInfo'
 },
@@ -23,6 +23,16 @@ const dropMsg = [{
 },
 {
   name: '发布艺术品',
+  path: '/publishArt'
+}
+]
+
+export const dropBuyMsg = [{
+  name: '购买版权',
+  path: '/uploadInfo'
+},
+{
+  name: '购买艺术品',
   path: '/publishArt'
 }
 ]
@@ -48,6 +58,5 @@ const menuList = [{
 export {
   navMsg,
   loginMsg,
-  menuList,
-  dropMsg
+  menuList
 }
