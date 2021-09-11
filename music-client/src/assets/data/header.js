@@ -13,7 +13,11 @@ const navMsg = [{
   path: '/my-music'
 }]
 
+<<<<<<< HEAD
   export const dropUploadMsg = [{
+=======
+export const dropUploadMsg = [{
+>>>>>>> ae1c6191b2db7c96129fdb71f38996e1b45bd25a
   name: '上传影片信息',
   path: '/uploadInfo'
 },
@@ -37,8 +41,11 @@ export const dropBuyMsg = [{
 }
 ]
 
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> ae1c6191b2db7c96129fdb71f38996e1b45bd25a
 // 右侧导航栏
 const loginMsg = [{
   name: '登录',
