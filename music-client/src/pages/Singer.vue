@@ -1,5 +1,12 @@
 <template>
   <div class="singer">
+    <div class="header-search">
+      <input type="text" placeholder="可输入电影名称/版权名称/ID等" @keyup.enter="goSearch()" v-model="keywords">
+      <div class="search-btn"  @click="goSearch()" >
+        搜索
+      </div>
+    </div>
+
     <ul class="singer-header">
       <li
         v-for="(item, index) in singerStyle"
@@ -36,7 +43,7 @@ export default {
   data () {
     return {
       singerStyle: singerStyle, // 歌手导航栏类别
-      activeName: '全部歌手',
+      activeName: '全部电影',
       pageSize: 15, // 页数
       currentPage: 1, // 当前页
       albumDatas: []

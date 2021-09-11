@@ -6,6 +6,7 @@
       <!--        <use :xlink:href="ERJI"></use>-->
       <!--      </svg>-->
       <img
+        alt="App-market"
         height="70"
         :src="require('@/assets/img/logo.jpg')"
       />
@@ -15,14 +16,23 @@
       <li :class="{active: item.name === activeName}" v-for="item in navMsg" :key="item.path" @click="goPage(JSON.stringify(item))">
         {{item.name}}
       </li>
-      <li>
+       <li>
         <el-dropdown @command="goPage">
         <el-button>
          上映新片<i class="el-icon-arrow-down el-icon--right"></i>
          </el-button>
           <el-dropdown-menu slot="dropdown">
-            <el-dropdown-item  v-for="item in dropMsg" :key="item.path" :command="JSON.stringify(item)">{{item.name}}</el-dropdown-item>
+            <el-dropdown-item  v-for="item in dropUploadMsg" :key="item.path" :command="JSON.stringify(item)">{{item.name}}</el-dropdown-item>
           </el-dropdown-menu>
+        </el-dropdown>
+      </li>
+      <li>
+        <el-dropdown @command="goPage">
+          <el-button>
+            购买nft<i class="el-icon-arrow-down el-icon--right"></i>
+          </el-button>
+          <el-dropdown-menu slot="dropdown">
+            <el-dropdown-item  v-for="item in dropBuyMsg" :key="item.path" :command="JSON.stringify(item)">{{item.name}}</el-dropdown-item>          </el-dropdown-menu>
         </el-dropdown>
       </li>
       <li>
@@ -43,7 +53,7 @@
         <img :src="attachImageUrl(avator)" alt="">
       </div>
       <ul class="menu">
-        <li v-for="(item, index) in menuList" :key="index" @click="goMenuList(JSON.stringify(item))">{{item.name}}</li>
+        <li v-for="(item, index) in menuList" :key="index" @click="goMenuList(item.path)">{{item.name}}</li>
       </ul>
     </div>
   </div>
@@ -52,7 +62,7 @@
 <script>
 import mixin from '../mixins'
 import { mapGetters } from 'vuex'
-import { navMsg, loginMsg, menuList, dropMsg } from '../assets/data/header'
+import { navMsg, loginMsg, menuList, dropBuyMsg, dropUploadMsg } from '../assets/data/header'
 import { ICON } from '../assets/icon/index'
 
 export default {
@@ -67,8 +77,9 @@ export default {
       keywords: '',
       ERJI: ICON.ERJI,
       SOUSUO: ICON.SOUSUO,
-      dropMsg: dropMsg
-    }
+      dropUploadMsg: dropUploadMsg,
+      dropBuyMsg: dropBuyMsg
+      }
   },
   computed: {
     ...mapGetters([
@@ -146,4 +157,5 @@ export default {
 .el-icon-arrow-down {
   font-size: 18px;
 }
+
 </style>

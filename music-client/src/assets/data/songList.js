@@ -1,35 +1,19 @@
 const songStyle = [
   {
-    name: '全部歌单',
+    name: '视频',
     type: 'One'
   },
   {
-    name: '华语',
+    name: '链上版权',
     type: 'Two'
   },
   {
-    name: '粤语',
+    name: '链上艺术品',
     type: 'Three'
   },
   {
-    name: '欧美',
+    name: '购买电影票',
     type: 'Four'
-  },
-  {
-    name: '日韩',
-    type: 'Five'
-  },
-  {
-    name: '轻音乐',
-    type: 'Six'
-  },
-  {
-    name: 'BGM',
-    type: 'Seven'
-  },
-  {
-    name: '乐器',
-    type: 'Eight'
   }
 ]
 

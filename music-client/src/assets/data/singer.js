@@ -1,18 +1,18 @@
 const singerStyle = [
   {
-    name: '全部歌手',
+    name: '所剩数量',
     type: '-1'
   },
   {
-    name: '男歌手',
+    name: '收益分成',
     type: '1'
   },
   {
-    name: '女歌手',
+    name: '发行日期',
     type: '0'
   },
   {
-    name: '组合歌手',
+    name: '价格',
     type: '2'
   }
 ]

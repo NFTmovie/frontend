@@ -8,9 +8,10 @@
       <li class="list-title">
         <div class="song-item">
           <span class="item-index"></span>
-          <span class="item-title">歌曲名</span>
-          <span class="item-name">艺人</span>
-          <span class="item-intro">专辑</span>
+          <span class="item-title">发行日期</span>
+          <span class="item-name">购买日期</span>
+          <span class="item-intro">价格</span>
+          <span class="item-gain">收益分成</span>
         </div>
       </li>
       <li class="list-content" v-for="(item, index) in songList" :key="index">

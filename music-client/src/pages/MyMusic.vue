@@ -18,6 +18,13 @@
           <template slot="title">我的收藏</template>
         </album-content>
       </div>
+
+       <div class="songs-body">
+        <album-content :songList="buyList">
+          <template slot="title">我购买的版权</template>
+        </album-content>
+      </div>
+
     </div>
   </div>
 </template>
@@ -43,7 +50,8 @@ export default {
       location: '',
       introduction: '',
       collection: [], // 存放收藏的歌曲ID
-      collectList: [] // 收藏的歌曲
+      collectList: [], // 收藏的歌曲
+      buyList: [], // 购买的电影
     }
   },
   computed: {
@@ -56,6 +64,7 @@ export default {
   mounted () {
     this.getMsg(this.userId)
     this.getCollection(this.userId)
+    this.getBuyMovies(this.userId)
   },
   methods: {
     getMsg (id) {
@@ -94,6 +103,18 @@ export default {
           console.log(err)
         })
     },
+
+    // 获取购买的电影
+    getBuyMovies (id) {
+      HttpManager.getSongOfId(id)
+        .then(res => {
+          this.buyList.push(res[0])
+        })
+        .catch(err => {
+          console.log(err)
+        })
+    },
+
     // 获取收藏的歌曲
     getCollectSongs (id) {
       HttpManager.getSongOfId(id)

@@ -12,7 +12,47 @@ li {
   margin-top: 0;
   padding-top: $header-height;
   padding-bottom: 50px;
-  background-color: $color-white;
+  //background-color: $color-white;
+
+  .header-search{
+    @include layout;
+    border-radius: $header-search-radius;
+    overflow: hidden;
+    margin-top:auto;
+
+    ::placeholder{
+      color: $color-orange;
+      opacity: 1; /* Firefox */
+    }
+    input {
+      border-style: solid;
+      border-width: 5px;
+      border-color: #DD6F0D;
+      background-color: #262626;
+      height: $header-search-height;
+      width: $header-search-width;
+      font-size: $font-size-default;
+      
+
+      text-indent: 10px;
+            &:focus {
+        outline: none;
+      }
+    }
+
+    .search-btn {
+      @include layout(center, center);
+      background-color: $color-orange;
+;
+      width: $header-search-btn-width;
+      height: $header-search-btn-height;
+      cursor: pointer;
+      .icon {
+        @include icon(1.2em, $color-white);
+      }
+    }
+    
+  }
   .singer-header {
     width: 100%;
     padding: 0 40px;

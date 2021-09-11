@@ -1,5 +1,9 @@
 <template>
   <div class="home">
+    <!--橙色banner-->
+    <svg width="100%" height = "300" class = "org-banner">
+      <rect width="100%" height = "250"/>
+    </svg>
     <!--轮播图-->
     <el-carousel class="swiper-container" :interval="4000" type="card" height="280px">
       <el-carousel-item v-for="(item, index) in swiperList" :key="index">

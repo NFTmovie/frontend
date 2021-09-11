@@ -86,7 +86,7 @@ const constantRoutes = [
         path: '/publishArt',
         name: 'publishArt',
         component: () => import('@/pages/Setting')
-      }
+      },
     ]
   }
 ]

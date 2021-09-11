@@ -19,12 +19,14 @@
     margin: 40px 20px 15px 20px;
     font-size: 20px;
     font-weight: 400;
-    color: $color-grey;
+    color: $color-white;
+    background-color: #262626;
     border-bottom: none;
     cursor: pointer;
   }
   li.active {
-    color: $color-black;
+    color: $color-white;
+    background-color: #DD6F0D;
     font-weight: 600;
     border-bottom: 4px solid $color-black;
   }
