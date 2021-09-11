@@ -13,6 +13,20 @@ const navMsg = [{
   path: '/my-music'
 }]
 
+const dropMsg = [{
+  name: '上传影片信息',
+  path: '/uploadInfo'
+},
+{
+  name: '发布版权',
+  path: '/publishMovie'
+},
+{
+  name: '发布艺术品',
+  path: '/publishArt'
+}
+]
+
 // 右侧导航栏
 const loginMsg = [{
   name: '登录',
@@ -34,5 +48,6 @@ const menuList = [{
 export {
   navMsg,
   loginMsg,
-  menuList
+  menuList,
+  dropMsg
 }

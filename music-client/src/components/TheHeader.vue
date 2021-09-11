@@ -6,15 +6,24 @@
       <!--        <use :xlink:href="ERJI"></use>-->
       <!--      </svg>-->
       <img
-        alt="App-market"
         height="70"
         :src="require('@/assets/img/logo.jpg')"
       />
       <!--      <span>{{musicName}}</span>-->
     </div>
     <ul class="navbar" ref="change">
-      <li :class="{active: item.name === activeName}" v-for="item in navMsg" :key="item.path" @click="goPage(item.path, item.name)">
+      <li :class="{active: item.name === activeName}" v-for="item in navMsg" :key="item.path" @click="goPage(JSON.stringify(item))">
         {{item.name}}
+      </li>
+      <li>
+        <el-dropdown @command="goPage">
+        <el-button>
+         上映新片<i class="el-icon-arrow-down el-icon--right"></i>
+         </el-button>
+          <el-dropdown-menu slot="dropdown">
+            <el-dropdown-item  v-for="item in dropMsg" :key="item.path" :command="JSON.stringify(item)">{{item.name}}</el-dropdown-item>
+          </el-dropdown-menu>
+        </el-dropdown>
       </li>
       <li>
         <div class="header-search">
@@ -26,7 +35,7 @@
           </div>
         </div>
       </li>
-      <li v-show="!loginIn" :class="{active: item.name === activeName}" v-for="item in loginMsg" :key="item.type" @click="goPage(item.path, item.name)">{{item.name}}</li>
+      <li v-show="!loginIn" :class="{active: item.name === activeName}" v-for="item in loginMsg" :key="item.type" @click="goPage(JSON.stringify(item))">{{item.name}}</li>
     </ul>
     <!--设置-->
     <div class="header-right" v-show="loginIn">
@@ -34,7 +43,7 @@
         <img :src="attachImageUrl(avator)" alt="">
       </div>
       <ul class="menu">
-        <li v-for="(item, index) in menuList" :key="index" @click="goMenuList(item.path)">{{item.name}}</li>
+        <li v-for="(item, index) in menuList" :key="index" @click="goMenuList(JSON.stringify(item))">{{item.name}}</li>
       </ul>
     </div>
   </div>
@@ -43,7 +52,7 @@
 <script>
 import mixin from '../mixins'
 import { mapGetters } from 'vuex'
-import { navMsg, loginMsg, menuList } from '../assets/data/header'
+import { navMsg, loginMsg, menuList, dropMsg } from '../assets/data/header'
 import { ICON } from '../assets/icon/index'
 
 export default {
@@ -57,7 +66,8 @@ export default {
       menuList: menuList, // 用户下拉菜单项
       keywords: '',
       ERJI: ICON.ERJI,
-      SOUSUO: ICON.SOUSUO
+      SOUSUO: ICON.SOUSUO,
+      dropMsg: dropMsg
     }
   },
   computed: {
@@ -86,7 +96,10 @@ export default {
     goHome () {
       this.$router.push({path: '/'})
     },
-    goPage (path, value) {
+    goPage (obj) {
+      let item = JSON.parse(obj)
+      const value = item.name
+      const path = item.path
       document.querySelector('.menu').classList.remove('show')
       this.changeIndex(value)
       if (!this.loginIn && path === '/my-music') {
@@ -120,4 +133,17 @@ export default {
 
 <style lang="scss" scoped>
 @import '../assets/css/the-header.scss';
+.el-dropdown {
+  vertical-align: top;
+  background-color: black;
+}
+.el-button{
+  background-color: black;
+  color: white;
+  border-color: black;
+  font-size: 18px;
+}
+.el-icon-arrow-down {
+  font-size: 18px;
+}
 </style>

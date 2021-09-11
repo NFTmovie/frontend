@@ -71,6 +71,21 @@ const constantRoutes = [
         path: '/setting',
         name: 'setting',
         component: () => import('@/pages/Setting')
+      },
+      {
+        path: '/uploadInfo',
+        name: 'uploadInfo',
+        component: () => import('@/pages/UploadInfo')
+      },
+      {
+        path: '/publishMovie',
+        name: 'publishMovie',
+        component: () => import('@/pages/Setting')
+      },
+      {
+        path: '/publishArt',
+        name: 'publishArt',
+        component: () => import('@/pages/Setting')
       }
     ]
   }
