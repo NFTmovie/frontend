@@ -87,6 +87,21 @@ const constantRoutes = [
         name: 'publishArt',
         component: () => import('@/pages/Setting')
       },
+      {
+        path: '/buyCopyright',
+        name: 'buyCopyright',
+        component: () => import('@/pages/buyCopyright')
+      },
+      {
+        path: '/buyArt',
+        name: 'buyArt',
+        component: () => import('@/pages/buyArt')
+      },
+      {
+        path: '/buyCopyright/:id',
+        name: 'buyCopyrightdetail',
+        component: () => import('@/pages/buyCopyrightdetail')
+      },
     ]
   }
 ]

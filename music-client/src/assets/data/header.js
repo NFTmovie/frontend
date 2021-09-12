@@ -29,11 +29,11 @@ export const dropUploadMsg = [{
 
 export const dropBuyMsg = [{
   name: '购买版权',
-  path: '/uploadInfo'
+  path: '/buyCopyright'
 },
 {
   name: '购买艺术品',
-  path: '/publishArt'
+  path: '/buyArt'
 }
 ]
 

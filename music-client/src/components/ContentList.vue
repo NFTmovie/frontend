@@ -3,14 +3,16 @@
     <ul class="section-content">
       <li class="content-item" v-for="(item, index) in contentList" :key="index">
         <div class="kuo" @click="goAblum(item)">
-          <img class="item-img" :src="attachImageUrl(item.pic)" alt="">
+          <img class="item-img" :src="item.picImg" alt="">
           <div class="mask"  @click="goAblum(item)">
             <svg class="icon" aria-hidden="true">
               <use :xlink:href="BOFANG"></use>
             </svg>
           </div>
         </div>
-        <p class="item-name">{{item.name || item.title}}</p>
+        <p class="item-name">{{item.name}}</p>
+        <p class="item-name">{{item.director}}</p>
+        <p class="item-name">{{item.releasedate}}</p>
       </li>
     </ul>
   </div>

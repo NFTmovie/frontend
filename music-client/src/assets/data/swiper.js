@@ -1,21 +1,34 @@
-// 轮播图
-const swiperList = [{
-  picImg: require('@/assets/img/swiper/01.jpg')
-}, {
-  picImg: require('@/assets/img/swiper/02.jpg')
-}, {
-  picImg: require('@/assets/img/swiper/03.jpg')
-}, {
-  picImg: require('@/assets/img/swiper/04.jpg')
-}, {
-  picImg: require('@/assets/img/swiper/microphone-1209816_640.jpg')
-}, {
-  picImg: require('@/assets/img/swiper/music-notes-3221097_640.jpg')
-}, {
-  picImg: require('@/assets/img/swiper/piano-1655558_640.jpg')
-}, {
-  picImg: require('@/assets/img/swiper/turntable-1337986_640.jpg')
-}]
+// 样例视频
+const swiperList = [
+  {
+    picImg: require('@/assets/img/swiper/01.jpg'),
+    id: 1,
+    name: '电影名称',
+    director: '导演名称 作品',
+    releasedate: 'YYYY.MM.DD 发行'
+  },
+  {
+    picImg: require('@/assets/img/swiper/02.jpg'),
+    id: 2,
+    name: '电影名称',
+    director: '导演名称 作品',
+    releasedate: 'YYYY.MM.DD 发行'
+  },
+  {
+    picImg: require('@/assets/img/swiper/03.jpg'),
+    id: 3,
+    name: '电影名称',
+    director: '导演名称 作品',
+    releasedate: 'YYYY.MM.DD 发行'
+  },
+  {
+    picImg: require('@/assets/img/swiper/04.jpg'),
+    id: 4,
+    name: '电影名称',
+    director: '导演名称 作品',
+    releasedate: 'YYYY.MM.DD 发行'
+  },
+]
 
 export {
   swiperList
