@@ -23,8 +23,6 @@
          </el-button>
           <el-dropdown-menu slot="dropdown">
             <el-dropdown-item  v-for="item in dropUploadMsg" :key="item.path" :command="JSON.stringify(item)">{{item.name}}</el-dropdown-item>
-<<<<<<< HEAD
-=======
           </el-dropdown-menu>
         </el-dropdown>
       </li>
@@ -35,7 +33,6 @@
           </el-button>
           <el-dropdown-menu slot="dropdown">
             <el-dropdown-item  v-for="item in dropBuyMsg" :key="item.path" :command="JSON.stringify(item)">{{item.name}}</el-dropdown-item>
->>>>>>> ae1c6191b2db7c96129fdb71f38996e1b45bd25a
           </el-dropdown-menu>
         </el-dropdown>
       </li>
@@ -92,11 +89,7 @@ export default {
       SOUSUO: ICON.SOUSUO,
       dropUploadMsg: dropUploadMsg,
       dropBuyMsg: dropBuyMsg
-<<<<<<< HEAD
-      }
-=======
     }
->>>>>>> ae1c6191b2db7c96129fdb71f38996e1b45bd25a
   },
   computed: {
     ...mapGetters([
