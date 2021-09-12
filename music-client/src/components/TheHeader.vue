@@ -1,21 +1,16 @@
 <template>
   <div class="the-header">
-    <!--图标-->
     <div class="header-logo" @click="goHome">
-      <!--      <svg class="icon" aria-hidden="true">-->
-      <!--        <use :xlink:href="ERJI"></use>-->
-      <!--      </svg>-->
       <img
         alt="App-market"
         height="70"
         :src="require('@/assets/img/logo.jpg')"
       />
-      <!--      <span>{{musicName}}</span>-->
     </div>
     <ul class="navbar" ref="change">
-      <li :class="{active: item.name === activeName}" v-for="item in navMsg" :key="item.path" @click="goPage(JSON.stringify(item))">
-        {{item.name}}
-      </li>
+<!--      <li :class="{active: item.name === activeName}" v-for="item in navMsg" :key="item.path" @click="goPage(JSON.stringify(item))">-->
+<!--        {{item.name}}-->
+<!--      </li>-->
        <li>
         <el-dropdown @command="goPage">
         <el-button>
@@ -39,11 +34,13 @@
       <li>
         <el-dropdown @command="goPage">
           <el-button>
-            购买nft<i class="el-icon-arrow-down el-icon--right"></i>
+            增值服务<i class="el-icon-arrow-down el-icon--right"></i>
           </el-button>
           <el-dropdown-menu slot="dropdown">
             <el-dropdown-item  v-for="item in dropBuyMsg" :key="item.path" :command="JSON.stringify(item)">{{item.name}}</el-dropdown-item>          </el-dropdown-menu>
         </el-dropdown>
+      </li>
+      <li>我的
       </li>
       <li>
         <div class="header-search">

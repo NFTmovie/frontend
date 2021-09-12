@@ -31,15 +31,17 @@
 .navbar {
   height: $header-height;
   white-space: nowrap;
+  position: center;
   li {
     margin: $header-nav-margin;
     padding: $header-nav-padding;
     font-size: $font-size-header;
     color: $color-white;
-    text-align: center;
+    text-align: right;
     border-bottom: none;
     box-sizing: border-box;
     cursor: pointer;
+    position: center;
   }
 }
 

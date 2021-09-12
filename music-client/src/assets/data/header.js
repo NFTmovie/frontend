@@ -19,21 +19,21 @@ export const dropUploadMsg = [{
 },
 {
   name: '发布版权',
-  path: '/publishMovie'
+  path: '/publishCopyright'
 },
 {
   name: '发布艺术品',
-  path: '/publishArt'
+  path: 'publishArtWork'
 }
 ]
 
 export const dropBuyMsg = [{
   name: '购买版权',
-  path: '/uploadInfo'
+  path: '/buyCopyright'
 },
 {
   name: '购买艺术品',
-  path: '/publishArt'
+  path: '/buyArtWork'
 }
 ]
 

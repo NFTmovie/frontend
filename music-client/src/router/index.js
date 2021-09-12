@@ -78,15 +78,25 @@ const constantRoutes = [
         component: () => import('@/pages/UploadInfo')
       },
       {
-        path: '/publishMovie',
-        name: 'publishMovie',
-        component: () => import('@/pages/Setting')
+        path: '/publishCopyright',
+        name: 'publishCopyright',
+        component: () => import('@/pages/PublishCopyright')
       },
       {
-        path: '/publishArt',
-        name: 'publishArt',
-        component: () => import('@/pages/Setting')
+        path: '/publishArtWork',
+        name: 'publishArtWork',
+        component: () => import('@/pages/PublishArtWork')
       },
+      {
+        path: '/buyArtWork',
+        name: 'buyArtWork',
+        component: () => import('@/pages/BuyArtWork')
+      },
+      {
+        path: '/buyCopyright',
+        name: 'buyCopyright',
+        component: () => import('@/pages/BuyCopyright')
+      }
     ]
   }
 ]
