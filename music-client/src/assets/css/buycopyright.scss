@@ -15,7 +15,7 @@ li {
   //background-color: $color-white;
 
   .header-search{
-    @include layout;
+    @include layout(center, center);
     border-radius: $header-search-radius;
     overflow: hidden;
     margin-top:auto;
