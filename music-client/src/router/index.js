@@ -43,9 +43,9 @@ const constantRoutes = [
         component: () => import('@/pages/MyMusic')
       },
       {
-        path: '/song-list-album/:id',
-        name: 'song-list-album',
-        component: () => import('@/pages/SongListAlbum')
+        path: '/movie-detail/:id',
+        name: 'movie-detail',
+        component: () => import('@/pages/MovieDetail')
       },
       {
         path: '/singer',
