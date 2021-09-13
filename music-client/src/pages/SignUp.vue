@@ -1,6 +1,5 @@
 <template>
 <div class="signUp-page">
-  <loginLogo/>
   <div class="signUp">
     <div class="signUp-head">
       <span>用户注册</span>
