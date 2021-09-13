@@ -9,23 +9,23 @@
 
     <div class="section">
       <div class="section-title">电影列表</div>
-      <content-list
-        :contentList="movieList"
+      <copyright-list
+        :copyrightMovies ="movieList"
         path="BuyCopyright"
-      ></content-list>
+      ></copyright-list>
     </div>
   </div>
 </template>
 
 <script>
-import ContentList from '../components/ContentList'
-import { swiperList } from '../assets/data/swiper'
+import CopyrightList from '../components/CopyrightList'
+import { movies } from '../assets/data/movieCR'
 import { HttpManager } from '../api/index'
 
 export default {
   name: 'singer',
   components: {
-    ContentList
+    CopyrightList
   },
   data () {
     return {
@@ -33,7 +33,7 @@ export default {
       pageSize: 15, // 页数
       currentPage: 1, // 当前页
       albumDatas: [],
-      movieList: swiperList // 歌单列表
+      movieList: movies // 歌单列表
 
     }
   },
