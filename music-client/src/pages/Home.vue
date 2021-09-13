@@ -16,7 +16,7 @@
       <div class="section-title">电影列表</div>
       <content-list
         :contentList="songList"
-        path="song-list-album"
+        path="movie-detail"
       ></content-list>
     </div>
   </div>

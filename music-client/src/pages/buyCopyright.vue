@@ -11,7 +11,7 @@
       <div class="section-title">电影列表</div>
       <content-list
         :contentList="movieList"
-        path="buyCopyright"
+        path="BuyCopyright"
       ></content-list>
     </div>
   </div>
