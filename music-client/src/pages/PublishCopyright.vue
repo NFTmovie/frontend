@@ -2,18 +2,22 @@
   <div class="signUp-page">
     <div class="signUp">
       <div class="signUp-head">
-        <span>上传影片</span>
+        <span>发布版权</span>
       </div>
       <el-form :model="registerForm" status-icon :rules="rules" ref="registerForm" label-width="120px" class="demo-ruleForm">
         <div style="width:500px;height:45px;border:2px solid #DD700C; background-color: #DD700C;align-content: center">
-          <el-form-item prop="username" label="出品方" class="item">
-            <el-input v-model="registerForm.username" placeholder="请输入" class="input"></el-input>
+          <el-form-item prop="username" label="选择电影" class="item">
+            <el-select v-model="registerForm.location" placeholder="请输入" style="width:100%" class="input">
+              <el-option v-for="item in cities" :key="item.value" :label="item.label" :value="item.value"></el-option>
+            </el-select>
           </el-form-item>
         </div>
         <br>
         <div style="width:500px;height:45px;border:2px solid #DD700C; background-color: #DD700C;align-content: center">
-          <el-form-item prop="password" label="电影中文名" class="item">
-            <el-input type="password" placeholder="请输入" v-model="registerForm.password" class="input"></el-input>
+          <el-form-item prop="username" label="选择版权" class="item">
+            <el-select v-model="registerForm.location" placeholder="请输入" style="width:100%" class="input">
+              <el-option v-for="item in cities" :key="item.value" :label="item.label" :value="item.value"></el-option>
+            </el-select>
           </el-form-item>
         </div>
         <br>
@@ -23,14 +27,14 @@
         <!--            <el-radio :label="1">男</el-radio>-->
         <!--          </el-radio-group>-->
         <!--        </el-form-item>-->
-        <div style="width:500px;height:45px;border:5px solid #DD700C; background-color: #DD700C;align-content: center">
-          <el-form-item prop="phoneNum" label="电影英文名" class="item">
-            <el-input  placeholder="请输入" v-model="registerForm.phoneNum" class="input"></el-input>
+        <div style="width:500px;height:45px;border:2px solid #DD700C; background-color: #DD700C;align-content: center">
+          <el-form-item prop="introduction" label="价格" class="item">
+            <el-input  placeholder="请输入" v-model="registerForm.introduction" class="input"></el-input>
           </el-form-item>
         </div>
         <br>
-        <div style="width:500px;height:45px;border:5px solid #DD700C; background-color: #DD700C;align-content: center">
-          <el-form-item prop="email" label="简介" class="item">
+        <div style="width:500px;height:45px;border:2px solid #DD700C; background-color: #DD700C;align-content: center">
+          <el-form-item prop="email" label="数量" class="item">
             <el-input v-model="registerForm.email" placeholder="请输入" class="input"></el-input>
           </el-form-item>
         </div>
@@ -39,39 +43,13 @@
         <!--          <el-date-picker type="date" placeholder="选择日期" v-model="registerForm.birth" style="width: 100%;"></el-date-picker>-->
         <!--        </el-form-item>-->
         <div style="width:500px;height:45px;border:2px solid #DD700C; background-color: #DD700C;align-content: center">
-          <el-form-item prop="introduction" label="导演" class="item">
+          <el-form-item prop="introduction" label="收益分成" class="item">
             <el-input  placeholder="请输入" v-model="registerForm.introduction" class="input"></el-input>
-          </el-form-item>
-        </div>
-        <br>
-        <div style="width:500px;height:45px;border:2px solid #DD700C; background-color: #DD700C;align-content: center">
-          <el-form-item prop="location" label="国家地区" class="item">
-            <el-select v-model="registerForm.location" placeholder="请输入" style="width:100%" class="input">
-              <el-option v-for="item in cities" :key="item.value" :label="item.label" :value="item.value"></el-option>
-            </el-select>
-          </el-form-item>
-        </div>
-        <br>
-        <div style="width:500px;height:45px;border:2px solid #DD700C; background-color: #DD700C;align-content: center">
-          <el-form-item prop="introduction" label="发行公司" class="item">
-            <el-input  placeholder="请输入" v-model="registerForm.introduction" class="input"></el-input>
-          </el-form-item>
-        </div>
-        <br>
-        <div style="width:500px;height:45px;border:2px solid #DD700C; background-color: #DD700C;align-content: center">
-          <el-form-item prop="introduction" label="剧情" class="item">
-            <el-input  placeholder="请输入" v-model="registerForm.introduction" class="input"></el-input>
-          </el-form-item>
-        </div>
-        <br>
-        <div style="width:500px;height:45px;border:2px solid #DD700C; background-color: #DD700C;align-content: center">
-          <el-form-item prop="introduction" label="海报" class="item">
-            <el-input  placeholder="点击上传" v-model="registerForm.introduction" class="input"></el-input>
           </el-form-item>
         </div>
         <br>
         <div class="login-btn">
-          <el-button type="primary" @click="SignUp" align="center">点击上传</el-button>
+          <el-button type="primary" @click="SignUp" align="center">发布</el-button>
         </div>
       </el-form>
     </div>

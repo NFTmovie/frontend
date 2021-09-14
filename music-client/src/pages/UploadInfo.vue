@@ -23,13 +23,13 @@
 <!--            <el-radio :label="1">男</el-radio>-->
 <!--          </el-radio-group>-->
 <!--        </el-form-item>-->
-        <div style="width:500px;height:45px;border:5px solid #DD700C; background-color: #DD700C;align-content: center">
+        <div style="width:500px;height:45px;border:2px solid #DD700C; background-color: #DD700C;align-content: center">
         <el-form-item prop="phoneNum" label="电影英文名" class="item">
           <el-input  placeholder="请输入" v-model="registerForm.phoneNum" class="input"></el-input>
         </el-form-item>
         </div>
         <br>
-        <div style="width:500px;height:45px;border:5px solid #DD700C; background-color: #DD700C;align-content: center">
+        <div style="width:500px;height:45px;border:2px solid #DD700C; background-color: #DD700C;align-content: center">
         <el-form-item prop="email" label="简介" class="item">
           <el-input v-model="registerForm.email" placeholder="请输入" class="input"></el-input>
         </el-form-item>
