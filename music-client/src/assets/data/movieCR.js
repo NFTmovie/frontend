@@ -10,6 +10,19 @@ const movies = [
     price: 10,
     shares: 20,
     remaining: 1000,
+    bcinfo: {
+      address: "XXXX",
+      takenID: "XXXX",
+      block: "XXX",
+      blckhash: "XXX",
+      tradehash: "XXX",
+    },
+    tradehist: [{
+      buyer: "XXXX",
+      seller: "XXX",
+      date: "XXX",
+      price: "100",
+    }]
   },
   {
     picImg: require('@/assets/img/swiper/02.jpg'),
@@ -21,6 +34,19 @@ const movies = [
     price: 10,
     shares: 20,
     remaining: 1000,
+    bcinfo: {
+      address: "XXXX",
+      takenID: "XXXX",
+      block: "XXX",
+      blckhash: "XXX",
+      tradehash: "XXX",
+    },
+    tradehist: [{
+      buyer: "XXXX",
+      seller: "XXX",
+      date: "XXX",
+      price: "100",
+    }]
   },
   {
     picImg: require('@/assets/img/swiper/03.jpg'),
@@ -32,6 +58,19 @@ const movies = [
     price: 10,
     shares: 20,
     remaining: 1000,
+    bcinfo: {
+      address: "XXXX",
+      takenID: "XXXX",
+      block: "XXX",
+      blckhash: "XXX",
+      tradehash: "XXX",
+    },
+    tradehist: [{
+      buyer: "XXXX",
+      seller: "XXX",
+      date: "XXX",
+      price: "100",
+    }]
   },
   {
     picImg: require('@/assets/img/swiper/04.jpg'),
@@ -43,6 +82,19 @@ const movies = [
     price: 10,
     shares: 20,
     remaining: 1000,
+    bcinfo: {
+      address: "XXXX",
+      takenID: "XXXX",
+      block: "XXX",
+      blckhash: "XXX",
+      tradehash: "XXX",
+    },
+    tradehist: [{
+      buyer: "XXXX",
+      seller: "XXX",
+      date: "XXX",
+      price: "100",
+    }]
   }
 ]
 

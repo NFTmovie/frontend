@@ -4,7 +4,7 @@
       <li class="content-item" v-for="(item, index) in copyrightMovies" :key="index">
         <div class="kuo" @click="goAblum(item)">
           <img class="item-img" :src="item.picImg" alt="">
-            <div class="caption"><br>《{{item.name}}》</div>
+            <div class="caption">《{{item.name}}》<br> 汇编权 </div>
           <div class="mask"  @click="goAblum(item)">
             <svg class="icon" aria-hidden="true">
               <use :xlink:href="BOFANG"></use>
@@ -15,7 +15,7 @@
         <p class="item-name">收益分成：{{item.shares}}</p>
         <p class="item-name">{{item.releasedate}}</p>
 
-        <button-style 
+        <button-style @click="goAblum(item)" :path="'/' + path + '/' +item.id"
         btn="购买" :description= "item.price + ' QTUM'" >
         </button-style>
       </li>
@@ -46,7 +46,7 @@ export default {
   methods: {
     goAblum (item) {
       this.$store.commit('setTempList', item)
-      this.$router.push({path: `/${this.path}/${item.id}`})
+      //this.$router.push({path: `/${this.path}/${item.id}`})
     }
   }
 }
