@@ -3,14 +3,8 @@ const navMsg = [{
   name: '首页',
   path: '/'
 }, {
-  name: '上映新片',
-  path: '/song-list'
-}, {
-  name: '购买NFT',
-  path: '/singer'
-}, {
-  name: '电影票',
-  path: '/my-music'
+  name: '我的',
+  path: '/myInfo'
 }]
 
 export const dropUploadMsg = [{

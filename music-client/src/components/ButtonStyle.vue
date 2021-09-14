@@ -10,10 +10,10 @@
 <script>
 export default {
   name: 'button-style',
-   props: {
+  props: {
     description: String,
     btn: String,
-    click: Object,
+    click: Object
   },
   data () {
     return {

@@ -8,9 +8,9 @@
       />
     </div>
     <ul class="navbar" ref="change">
-<!--      <li :class="{active: item.name === activeName}" v-for="item in navMsg" :key="item.path" @click="goPage(JSON.stringify(item))">-->
-<!--        {{item.name}}-->
-<!--      </li>-->
+      <li :class="{active: navMsg[0].name === activeName}"  :key="navMsg[0].path" @click="goPage(JSON.stringify(navMsg[0]))">
+        {{navMsg[0].name}}
+      </li>
        <li>
         <el-dropdown @command="goPage">
         <el-button>
@@ -40,7 +40,8 @@
             <el-dropdown-item >粉丝空投</el-dropdown-item>          </el-dropdown-menu>
         </el-dropdown>
       </li>
-      <li>我的
+      <li :class="{active: navMsg[1].name === activeName}"  :key="navMsg[0].path" @click="goPage(JSON.stringify(navMsg[1]))">
+        {{navMsg[1].name}}
       </li>
       <li>
         <div class="header-search">
