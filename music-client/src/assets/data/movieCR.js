@@ -8,6 +8,8 @@ const movies = [
     releasedate: 'YYYY.MM.DD 发行',
     plot: '剧情剧情剧情剧情剧情剧情剧情剧情剧情剧情剧情剧情剧情剧情剧情.',
     price: 10,
+    shares: 20,
+    remaining: 1000,
   },
   {
     picImg: require('@/assets/img/swiper/02.jpg'),
@@ -17,6 +19,8 @@ const movies = [
     releasedate: 'YYYY.MM.DD 发行',
     plot: '剧情剧情剧情剧情剧情剧情剧情剧情剧情剧情剧情剧情剧情剧情剧情.',
     price: 10,
+    shares: 20,
+    remaining: 1000,
   },
   {
     picImg: require('@/assets/img/swiper/03.jpg'),
@@ -26,6 +30,8 @@ const movies = [
     releasedate: 'YYYY.MM.DD 发行',
     plot: '剧情剧情剧情剧情剧情剧情剧情剧情剧情剧情剧情剧情剧情剧情剧情.',
     price: 10,
+    shares: 20,
+    remaining: 1000,
   },
   {
     picImg: require('@/assets/img/swiper/04.jpg'),
@@ -35,6 +41,8 @@ const movies = [
     releasedate: 'YYYY.MM.DD 发行',
     plot: '剧情剧情剧情剧情剧情剧情剧情剧情剧情剧情剧情剧情剧情剧情剧情.',
     price: 10,
+    shares: 20,
+    remaining: 1000,
   }
 ]
 
