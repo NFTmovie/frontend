@@ -15,19 +15,31 @@
           剧情：{{ movies.plot }}
         </span>
       </div>
-      <button-style 
+      <button-style @onClick=buy(movies)
         btn="购买" :description= "movies.price + ' QTUM'" >
       </button-style>
     </div>
 
-    <h2>区块链信息</h2>
+    
     <ul class="section-content">
+      <h2>区块链信息</h2>
       <li class="content-item" v-for="(value, name) in movies.bcinfo">
         {{name}}:{{value}}
-        {{movies.bcinfo.block}}
       </li>
-      
     </ul>
+    <h2>成交历史</h2>
+    <table id="secondTable">
+      <thead>
+        <tr>
+          <th v-for="col in columns">{{col}}</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr v-for="row in movies.tradehist">
+          <td v-for="col in columns">{{row[col]}}</td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 </template>
 
@@ -54,86 +66,30 @@ export default {
       activeName: "视频", //默认选择栏
     };
   },
-  computed: {
-    ...mapGetters([
-      "loginIn", // 登录标识
-      "tempList", // 单个歌单信息
-      "listOfSongs", // 存放的音乐
-      "userId", // 用户ID
-      "avator", // 用户头像
+   computed: {
+     ...mapGetters([
+      'tempList',
     ]),
+    "columns": function columns() {
+      if (this.movies.tradehist.length == 0) {
+        return [];
+      }
+      return Object.keys(this.movies.tradehist[0])
+    }
   },
  
   created() {
     this.movies = this.tempList;
-    console.log(this.tempList);
+    console.log(this.movies);
     this.getSongId(); // 获取歌单里面的歌曲ID
     this.getRank(this.songListId); // 获取评分
   },
   methods: {
-    // 收集歌单里面的歌曲
-    getSongId() {
-      HttpManager.getListSongOfSongId(this.songListId)
-        .then((res) => {
-          // 获取歌单里的歌曲信息
-          for (let item of res) {
-            this.getSongList(item.songId);
-          }
-          this.$store.commit("setListOfSongs", this.songLists);
-        })
-        .catch((err) => {
-          console.log(err);
-        });
-    },
-    //点击header 切换类别时
-    // 获取单里的歌曲
-    getSongList(id) {
-      HttpManager.getSongOfId(id)
-        .then((res) => {
-          this.songLists.push(res[0]);
-        })
-        .catch((err) => {
-          console.log(err);
-        });
-    },
-    // 获取评分
-    getRank(id) {
-      HttpManager.getRankOfSongListId(id)
-        .then((res) => {
-          this.value5 = res / 2;
-        })
-        .catch((err) => {
-          console.log(err);
-        });
-    },
-    // 提交评分
-    pushValue() {
-      if (this.loginIn) {
-        let params = new URLSearchParams();
-        params.append("songListId", this.songListId);
-        params.append("consumerId", this.userId);
-        params.append("score", this.value3 * 2);
-        HttpManager.setRank(params)
-          .then((res) => {
-            if (res.code === 1) {
-              this.getRank(this.songListId);
-              this.notify("评分成功", "success");
-            } else {
-              this.notify("评分失败", "error");
-            }
-          })
-          .catch((err) => {
-            console.log(err);
-          });
-      } else {
-        this.value3 = null;
-        this.notify("请先登录", "warning");
-      }
-    },
+  
   },
 };
 </script>
 
 <style lang="scss" scoped>
-@import "../assets/css/movie-detail.scss";
+@import "../assets/css/buycopyright-detail.scss";
 </style>

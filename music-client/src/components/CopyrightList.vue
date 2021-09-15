@@ -15,7 +15,7 @@
         <p class="item-name">收益分成：{{item.shares}}</p>
         <p class="item-name">{{item.releasedate}}</p>
 
-        <button-style @click="goAblum(item)" :path="'/' + path + '/' +item.id"
+        <button-style @onClick="goMovie(item)"
         btn="购买" :description= "item.price + ' QTUM'" >
         </button-style>
       </li>
@@ -44,9 +44,9 @@ export default {
     }
   },
   methods: {
-    goAblum (item) {
+    goMovie (item) {
       this.$store.commit('setTempList', item)
-      //this.$router.push({path: `/${this.path}/${item.id}`})
+      this.$router.push({path: `/${this.path}/${item.id}`})
     }
   }
 }

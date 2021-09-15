@@ -22,6 +22,30 @@ const movies = [
       seller: "XXX",
       date: "XXX",
       price: "100",
+    },
+    {
+      buyer: "XXXX",
+      seller: "XXX",
+      date: "XXX",
+      price: "100",
+    },
+    {
+      buyer: "XXXX",
+      seller: "XXX",
+      date: "XXX",
+      price: "100",
+    },
+    {
+      buyer: "XXXX",
+      seller: "XXX",
+      date: "XXX",
+      price: "100",
+    },
+    {
+      buyer: "XXXX",
+      seller: "XXX",
+      date: "XXX",
+      price: "100",
     }]
   },
   {
@@ -42,6 +66,30 @@ const movies = [
       tradehash: "XXX",
     },
     tradehist: [{
+      buyer: "XXXX",
+      seller: "XXX",
+      date: "XXX",
+      price: "100",
+    },
+    {
+      buyer: "XXXX",
+      seller: "XXX",
+      date: "XXX",
+      price: "100",
+    },
+    {
+      buyer: "XXXX",
+      seller: "XXX",
+      date: "XXX",
+      price: "100",
+    },
+    {
+      buyer: "XXXX",
+      seller: "XXX",
+      date: "XXX",
+      price: "100",
+    },
+    {
       buyer: "XXXX",
       seller: "XXX",
       date: "XXX",
@@ -70,6 +118,30 @@ const movies = [
       seller: "XXX",
       date: "XXX",
       price: "100",
+    },
+    {
+      buyer: "XXXX",
+      seller: "XXX",
+      date: "XXX",
+      price: "100",
+    },
+    {
+      buyer: "XXXX",
+      seller: "XXX",
+      date: "XXX",
+      price: "100",
+    },
+    {
+      buyer: "XXXX",
+      seller: "XXX",
+      date: "XXX",
+      price: "100",
+    },
+    {
+      buyer: "XXXX",
+      seller: "XXX",
+      date: "XXX",
+      price: "100",
     }]
   },
   {
@@ -90,6 +162,30 @@ const movies = [
       tradehash: "XXX",
     },
     tradehist: [{
+      buyer: "XXXX",
+      seller: "XXX",
+      date: "XXX",
+      price: "100",
+    },
+    {
+      buyer: "XXXX",
+      seller: "XXX",
+      date: "XXX",
+      price: "100",
+    },
+    {
+      buyer: "XXXX",
+      seller: "XXX",
+      date: "XXX",
+      price: "100",
+    },
+    {
+      buyer: "XXXX",
+      seller: "XXX",
+      date: "XXX",
+      price: "100",
+    },
+    {
       buyer: "XXXX",
       seller: "XXX",
       date: "XXX",

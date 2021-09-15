@@ -1,7 +1,7 @@
 <template>
   <div class="header-search">
       <span class="button-desc">{{description}}</span>
-      <span class="search-btn"  @click="goDetail()" >
+      <span class="search-btn"  @click="onClick()" >
           {{btn}}
       </span>
     </div>
@@ -13,11 +13,10 @@ export default {
    props: {
     description: String,
     btn: String,
-    path: String,
   },
   methods: {
-    goDetail () {
-      this.$router.push({path: this.path})
+    onClick() {
+      this.$emit('onClick')
     }
   },
   data () {

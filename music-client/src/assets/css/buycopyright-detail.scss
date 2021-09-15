@@ -1,13 +1,66 @@
 @import "var.scss";
 @import "global.scss";
 
-.content-list {
-  min-height: 500px;
-  padding: 0 20px;
-  .section-content {
-    @include layout(space-around, stretch, row, wrap);
-  }
+
+.section-content {
+  @include layout(space-around, stretch, column, wrap);
+  margin: 10px 0px 0px 100px;
+  color: white;
 }
+
+
+/*歌单背景*/
+.song-list-album {
+  padding-top: $header-height + 54px;
+  background-color: $theme-background-color;
+  color: white;
+  @include layout(space-around, stretch, column, wrap);
+
+  /*
+  &::before {
+    //背景
+    content: "";
+    background-color: $theme-color;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: $header-height + 150px;
+  }*/
+}
+
+
+/*歌单左侧*/
+.album-slide {
+  float: right;
+  width: 100%;
+  display: flex;
+  height: 550px;
+
+  /*歌单图像*/
+  .album-img {
+    position: relative;
+    display: inline-block;
+    height: 400px;
+    width: 288px;
+    top: 0px;
+    left: 54px;
+    overflow: hidden;
+    border: 12px solid $color-white;
+    background-color: $color-white;
+    img {
+      width: 100%;
+    }
+  }
+
+  /*歌单信息*/
+  .movie-info {
+    color: $color-white;
+    font-size: 20px;
+    font-weight: 500;
+    padding: 0px 0px 0px 80px;
+  }
+
+
 
 .content-item {
   width: 286px;
@@ -30,53 +83,32 @@
     color: white;
   }
 }
-
-.item-img {
-  transition: all 0.4s ease;
-  height: 376px;
-  width:262px;
-    object-fit: fill;
-    border: 12px solid white;
-
+}
+table {
+  font-family: 'Open Sans', sans-serif;
+  width: 750px;
+  border-collapse: collapse;
+  border: 3px solid #44475C;
+  margin: 100px 10px 0 100px;
 }
 
-.kuo,
-.mask {
-  width: 100%;
-  overflow: hidden;
-
+table th {
+  text-transform: uppercase;
+  text-align: left;
+  background: #44475C;
+  color: #FFF;
+  padding: 8px;
+  min-width: 30px;
 }
 
-.caption {
-  position: absolute;
-  width: 100%;
-  height: 100px;
-  bottom: 200px;
-  left: 0px;
-  color: #ffffff;
-  background: $color-orange;
-  text-align:center;
-  font-weight:bold;
-  opacity:0.7;
+table td {
+  text-align: left;
+  padding: 8px;
+  border-right: 2px solid #7D82A8;
 }
-
-.mask {
-  position: absolute;
-  top: 0;
-  background-color: rgba(52, 47, 41, 0.4);
-  transition: all 0.3s ease-in-out;
-  opacity: 0;
-  @include layout(center);
-  > .icon {
-    position: absolute;
-    top: 40%;
-  }
-  &:hover {
-    opacity: 1;
-    cursor: pointer;
-  }
+table td:last-child {
+  border-right: none;
 }
-
-.icon {
-  @include icon(2em, rgba(240, 240, 240, 1));
+table tbody tr:nth-child(2n) td {
+  background: #D4D8F9;
 }
