@@ -16,7 +16,7 @@ import { swiperList } from '../assets/data/swiper'
 import { HttpManager } from '../api/index'
 
 export default {
-  name: 'singer',
+  name: 'BuyCopyright',
   components: {
     ContentList
   },

@@ -14,9 +14,6 @@
         <p class="item-name">{{item.director}}</p>
         <p class="item-name">{{item.releasedate}}</p>
 
-        <button-style 
-        btn="购买" :description="item.price">
-        </button-style>
       </li>
     </ul>
   </div>
