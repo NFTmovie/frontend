@@ -2,9 +2,9 @@
   <div class="content-list">
     <ul class="section-content">
       <li class="content-item" v-for="(item, index) in contentList" :key="index">
-        <div class="kuo" @click="goAblum(item)">
+        <div class="kuo" @click="goMovieDetail(item)">
           <img class="item-img" :src="item.picImg" alt="">
-          <div class="mask"  @click="goAblum(item)">
+          <div class="mask"  @click="goMovieDetail(item)">
             <svg class="icon" aria-hidden="true">
               <use :xlink:href="BOFANG"></use>
             </svg>
@@ -41,7 +41,7 @@ export default {
     }
   },
   methods: {
-    goAblum (item) {
+    goMovieDetail (item) {
       this.$store.commit('setTempList', item)
       this.$router.push({path: `/${this.path}/${item.id}`})
     }

@@ -1,34 +1,23 @@
 @import "var.scss";
 @import "global.scss";
 
-.login-logo {
-  background-color: $color-blue-light;
-  height: 100vh;
-  width: 50vw;
-  min-width: 650px;
-  overflow: hidden;
-  @include layout(center, center);
-  .icon {
-    @include icon(6.5em, $color-blue-dark);
-    transform: rotate(-30deg);
-  }
-}
 
 .login {
   position: absolute;
-  margin-left: 850px;
+  margin-left: 40%;
   width: 300px;
   height: 210px;
   top: $header-height + 60px;
   padding: 30px 50px;
   border-radius: 10px;
-  background-color: $color-white;
+  background-color: #262626 ;
 
   .login-head {
     text-align: center;
     margin-bottom: 10px;
-    font-size: 20px;
+    font-size: 30px;
     font-weight: 600;
+    color: #DD700C;
   }
 
   .login-btn {
@@ -36,6 +25,22 @@
     button {
       display: block;
       width: 50%;
+      color: white;
+      background-color: #DD700C;
+    }
+  }
+  .input>>>.el-input__inner{
+    margin-top: 2px;
+    background-color: #262626;
+    color: #DD700C;
+    border-color: #DD700C;
+  }
+  .item /deep/ {
+    .el-form-item__label {
+      white-space: pre-wrap;
+      text-align: center;
+      color: white;
+      font-size: 15px;
     }
   }
 }
