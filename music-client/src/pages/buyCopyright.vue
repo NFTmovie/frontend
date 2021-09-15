@@ -23,7 +23,7 @@ import { movies } from '../assets/data/movieCR'
 import { HttpManager } from '../api/index'
 
 export default {
-  name: 'singer',
+  name: 'BuyCopyright',
   components: {
     CopyrightList
   },
