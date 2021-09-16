@@ -4,7 +4,7 @@
 
 .section-content {
   @include layout(space-around, stretch, column, wrap);
-  margin: 10px 0px 0px 100px;
+  margin: 10px 0px 0px 0px;
   color: white;
 }
 
@@ -15,7 +15,7 @@
   background-color: $theme-background-color;
   color: white;
   @include layout(space-around, stretch, column, wrap);
-
+  margin-left: 56px;
   /*
   &::before {
     //背景
@@ -28,7 +28,9 @@
   }*/
 }
 
-
+.info {
+  margin-left: 56px;
+}
 /*歌单左侧*/
 .album-slide {
   float: right;
@@ -89,7 +91,7 @@ table {
   width: 750px;
   border-collapse: collapse;
   border: 3px solid #44475C;
-  margin: 100px 10px 0 100px;
+  margin: 100px 10px 0 0px;
 }
 
 table th {

@@ -20,13 +20,16 @@
       </button-style>
     </div>
 
-    
-    <ul class="section-content">
+    <div class = "info">
       <h2>区块链信息</h2>
+    <ul class="section-content">
       <li class="content-item" v-for="(value, name) in movies.bcinfo">
         {{name}}:{{value}}
       </li>
     </ul>
+    </div>
+
+    <div class = "info">
     <h2>成交历史</h2>
     <table id="secondTable">
       <thead>
@@ -40,6 +43,7 @@
         </tr>
       </tbody>
     </table>
+    </div>
   </div>
 </template>
 
