@@ -11,13 +11,13 @@
       <div class="section-title">拍卖中</div>
       <auction-list
         :auctionList ="movieList"
-        path="BuyCopyright"
+        path="BuyArtwork/Auction"
       ></auction-list>
 
       <div class="section-title">定价销售</div>
       <fixed-list
         :fixedList ="fixedartworks"
-        path="BuyArtwork/"
+        path="BuyArtwork/FixedPrice"
       ></fixed-list>
 
     </div>

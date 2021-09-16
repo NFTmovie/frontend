@@ -101,7 +101,17 @@ const constantRoutes = [
         path: '/BuyCopyright/:id',
         name: 'buycopyright-detail',
         component: () => import('@/pages/BuyCopyrightDetail')
-      }
+      },
+      {
+        path: '/BuyArtwork/Auction/:id',
+        name: 'auction-detail',
+        component: () => import('@/pages/AuctionDetail')
+      },
+      {
+        path: '/BuyArtwork/FixedPrice/:id',
+        name: 'auction-detail',
+        component: () => import('@/pages/FixedPriceDetail')
+      },
     ]
   }
 ]

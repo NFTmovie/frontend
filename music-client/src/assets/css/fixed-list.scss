@@ -3,7 +3,8 @@
 
 .content-list {
   min-height: 500px;
-  padding: 0 20px;
+  padding: 0 0px;
+  margin-left: 0;
   .section-content {
     @include layout(space-around, stretch, row, wrap);
   }
