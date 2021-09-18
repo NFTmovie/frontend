@@ -1,22 +1,22 @@
 <template>
   <div class="content-list">
     <ul class="section-content">
-      <li class="content-item" v-for="(item, index) in copyrightMovies" :key="index">
+      <li class="content-item" v-for="(item, index) in auctionList" :key="index">
         <div class="kuo" @click="goAblum(item)">
           <img class="item-img" :src="item.picImg" alt="">
-            <div class="caption">《{{item.name}}》<br> 汇编权 </div>
+            <div class="caption"> 竞拍{{item.enddate}}结束</div>
           <div class="mask"  @click="goAblum(item)">
             <svg class="icon" aria-hidden="true">
               <use :xlink:href="BOFANG"></use>
             </svg>
           </div>
         </div>
-        <p class="item-name">所剩数量：{{item.remaining}}</p>
-        <p class="item-name">收益分成：{{item.shares}}</p>
+        <p class="item-name">{{item.name}}</p>
+        <p class="item-name">ID：{{item.id}}</p>
         <p class="item-name">{{item.releasedate}}</p>
 
         <button-style @onClick="goMovie(item)"
-        btn="购买" :description= "item.price + ' QTUM'" >
+        btn="竞拍" :description= "'当前 ' + item.price + ' QTUM'" >
         </button-style>
       </li>
     </ul>
@@ -26,16 +26,16 @@
 <script>
 import mixin from '../mixins'
 import { ICON } from '../assets/icon/index'
-import ButtonStyle from '../components/ButtonStyle.vue'
+import ButtonStyle from './ButtonStyle.vue'
 
 export default {
-  name: 'copyright-list',
+  name: 'auction-list',
   mixins: [mixin],
     components: {
     ButtonStyle
   },
   props: {
-    copyrightMovies: Array,
+    auctionList: Array,
     path: String
   },
   data () {
@@ -53,5 +53,5 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import '../assets/css/copyright-list.scss';
+@import '../assets/css/auction-list.scss';
 </style>

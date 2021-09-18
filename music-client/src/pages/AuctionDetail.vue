@@ -5,8 +5,10 @@
       <div class="album-img">
         <img :src="movies.picImg" alt="" />
       </div>
-      <div class="movie-info">
-        <h1>《{{ movies.name }}》汇编权</h1>
+    </div>
+    <div class="movie-info">
+        <h1>《{{ movies.name }}》汇编权 <span>竞拍 {{ movies.enddate }} 日截止</span></h1>
+
         <span>
           ID: {{ movies.id }}
           <br>
@@ -18,7 +20,6 @@
       <button-style @onClick=buy(movies)
         btn="购买" :description= "movies.price + ' QTUM'" >
       </button-style>
-    </div>
 
     <div class = "info">
       <h2>区块链信息</h2>
@@ -95,5 +96,5 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "../assets/css/buycopyright-detail.scss";
+@import "../assets/css/fixedprice-detail.scss";
 </style>

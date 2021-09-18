@@ -1,24 +1,30 @@
 <template>
   <div class="singer">
+    <div class="header-search">
+      <input type="text" placeholder="可输入电影名称/版权名称/ID等" @keyup.enter="goSearch()" v-model="keywords">
+      <div class="search-btn"  @click="goSearch()" >
+        搜索
+      </div>
+    </div>
+
     <div class="section">
       <div class="section-title">电影列表</div>
-      <content-list
-        :contentList="movieList"
-        path="buyCopyright"
-      ></content-list>
+      <copyright-list
+        :copyrightMovies ="movieList"
+        path="BuyCopyright"
+      ></copyright-list>
     </div>
   </div>
 </template>
 
 <script>
-import ContentList from '../components/ContentList'
-import { swiperList } from '../assets/data/swiper'
+import CopyrightList from '../components/CopyrightList'
+import { movies } from '../assets/data/movieCR'
 import { HttpManager } from '../api/index'
-
 export default {
-  name: 'BuyCopyright',
+  name: 'buy-copyright',
   components: {
-    ContentList
+    CopyrightList
   },
   data () {
     return {
@@ -26,8 +32,7 @@ export default {
       pageSize: 15, // 页数
       currentPage: 1, // 当前页
       albumDatas: [],
-      movieList: swiperList // 歌单列表
-
+      movieList: movies // 歌单列表
     }
   },
   computed: {
