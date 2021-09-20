@@ -14,7 +14,7 @@
         <p class="item-name">ID：{{item.id}}</p>
         <p class="item-name">{{item.releasedate}}</p>
 
-        <button-style @onClick="goMovie(item)"
+        <button-style @onClick="goMovie(item)" class="btn"
         btn="购买" :description= "'当前 ' + item.price + ' QTUM'" >
         </button-style>
       </li>

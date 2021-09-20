@@ -17,7 +17,7 @@
           剧情：{{ movies.plot }}
         </span>
       </div>
-      <button-style @onClick=buy(movies)
+      <button-style @onClick=buy(movies) class="buy-btn"
         btn="购买" :description= "movies.price + ' QTUM'" >
       </button-style>
 
@@ -96,5 +96,5 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "../assets/css/fixedprice-detail.scss";
+@import "../assets/css/auction-detail.scss";
 </style>

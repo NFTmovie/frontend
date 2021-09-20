@@ -2,7 +2,7 @@
 @import "global.scss";
 
 .header-search {
-    @include layout(center, center);
+    @include layout(flex-start, stretch);
     border-radius: $header-search-radius;
     overflow: hidden;
     margin-top: auto;
@@ -11,10 +11,10 @@
     .button-desc {
         color: $color-orange;
         background-color: #262626;
-        height: $header-search-height;
-        width: $header-search-width;
+        height: 90%;
+        width: 80%;
         border: #dd6f0d solid 5px;
-        font-size: $font-size-default;
+        font-size: 32px;
         display: inline-flex;
         align-items: center;
         justify-content: center;
@@ -28,8 +28,9 @@
         color: $color-white;
         background-color: $color-orange;
         border: #dd6f0d solid 5px;
-        width: $header-search-btn-width;
-        height: $header-search-btn-height;
+        font-size: 24px;
+        width: 20%;
+        height: 90%;
         cursor: pointer;
         .icon {
             @include icon(1.2em, $color-white);
