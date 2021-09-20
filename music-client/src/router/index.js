@@ -112,6 +112,11 @@ const constantRoutes = [
         name: 'auction-detail',
         component: () => import('@/pages/FixedPriceDetail')
       },
+      {
+        path: '/MyInfo',
+        name: 'myInfo',
+        component: () => import('@/pages/MyInfo')
+      }
     ]
   }
 ]

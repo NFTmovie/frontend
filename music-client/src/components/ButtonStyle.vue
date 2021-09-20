@@ -10,12 +10,12 @@
 <script>
 export default {
   name: 'button-style',
-   props: {
+  props: {
     description: String,
-    btn: String,
+    btn: String
   },
   methods: {
-    onClick() {
+    onClick () {
       this.$emit('onClick')
     }
   },

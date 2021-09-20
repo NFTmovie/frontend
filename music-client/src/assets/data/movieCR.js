@@ -11,41 +11,41 @@ const movies = [
     shares: 20,
     remaining: 1000,
     bcinfo: {
-      address: "XXXX",
-      takenID: "XXXX",
-      block: "XXX",
-      blckhash: "XXX",
-      tradehash: "XXX",
+      address: 'XXXX',
+      takenID: 'XXXX',
+      block: 'XXX',
+      blckhash: 'XXX',
+      tradehash: 'XXX'
     },
     tradehist: [{
-      buyer: "XXXX",
-      seller: "XXX",
-      date: "XXX",
-      price: "100",
+      buyer: 'XXXX',
+      seller: 'XXX',
+      date: 'XXX',
+      price: '100'
     },
     {
-      buyer: "XXXX",
-      seller: "XXX",
-      date: "XXX",
-      price: "100",
+      buyer: 'XXXX',
+      seller: 'XXX',
+      date: 'XXX',
+      price: '100'
     },
     {
-      buyer: "XXXX",
-      seller: "XXX",
-      date: "XXX",
-      price: "100",
+      buyer: 'XXXX',
+      seller: 'XXX',
+      date: 'XXX',
+      price: '100'
     },
     {
-      buyer: "XXXX",
-      seller: "XXX",
-      date: "XXX",
-      price: "100",
+      buyer: 'XXXX',
+      seller: 'XXX',
+      date: 'XXX',
+      price: '100'
     },
     {
-      buyer: "XXXX",
-      seller: "XXX",
-      date: "XXX",
-      price: "100",
+      buyer: 'XXXX',
+      seller: 'XXX',
+      date: 'XXX',
+      price: '100'
     }]
   },
   {
@@ -59,41 +59,41 @@ const movies = [
     shares: 20,
     remaining: 1000,
     bcinfo: {
-      address: "XXXX",
-      takenID: "XXXX",
-      block: "XXX",
-      blckhash: "XXX",
-      tradehash: "XXX",
+      address: 'XXXX',
+      takenID: 'XXXX',
+      block: 'XXX',
+      blckhash: 'XXX',
+      tradehash: 'XXX'
     },
     tradehist: [{
-      buyer: "XXXX",
-      seller: "XXX",
-      date: "XXX",
-      price: "100",
+      buyer: 'XXXX',
+      seller: 'XXX',
+      date: 'XXX',
+      price: '100'
     },
     {
-      buyer: "XXXX",
-      seller: "XXX",
-      date: "XXX",
-      price: "100",
+      buyer: 'XXXX',
+      seller: 'XXX',
+      date: 'XXX',
+      price: '100'
     },
     {
-      buyer: "XXXX",
-      seller: "XXX",
-      date: "XXX",
-      price: "100",
+      buyer: 'XXXX',
+      seller: 'XXX',
+      date: 'XXX',
+      price: '100'
     },
     {
-      buyer: "XXXX",
-      seller: "XXX",
-      date: "XXX",
-      price: "100",
+      buyer: 'XXXX',
+      seller: 'XXX',
+      date: 'XXX',
+      price: '100'
     },
     {
-      buyer: "XXXX",
-      seller: "XXX",
-      date: "XXX",
-      price: "100",
+      buyer: 'XXXX',
+      seller: 'XXX',
+      date: 'XXX',
+      price: '100'
     }]
   },
   {
@@ -107,41 +107,41 @@ const movies = [
     shares: 20,
     remaining: 1000,
     bcinfo: {
-      address: "XXXX",
-      takenID: "XXXX",
-      block: "XXX",
-      blckhash: "XXX",
-      tradehash: "XXX",
+      address: 'XXXX',
+      takenID: 'XXXX',
+      block: 'XXX',
+      blckhash: 'XXX',
+      tradehash: 'XXX'
     },
     tradehist: [{
-      buyer: "XXXX",
-      seller: "XXX",
-      date: "XXX",
-      price: "100",
+      buyer: 'XXXX',
+      seller: 'XXX',
+      date: 'XXX',
+      price: '100'
     },
     {
-      buyer: "XXXX",
-      seller: "XXX",
-      date: "XXX",
-      price: "100",
+      buyer: 'XXXX',
+      seller: 'XXX',
+      date: 'XXX',
+      price: '100'
     },
     {
-      buyer: "XXXX",
-      seller: "XXX",
-      date: "XXX",
-      price: "100",
+      buyer: 'XXXX',
+      seller: 'XXX',
+      date: 'XXX',
+      price: '100'
     },
     {
-      buyer: "XXXX",
-      seller: "XXX",
-      date: "XXX",
-      price: "100",
+      buyer: 'XXXX',
+      seller: 'XXX',
+      date: 'XXX',
+      price: '100'
     },
     {
-      buyer: "XXXX",
-      seller: "XXX",
-      date: "XXX",
-      price: "100",
+      buyer: 'XXXX',
+      seller: 'XXX',
+      date: 'XXX',
+      price: '100'
     }]
   },
   {
@@ -155,41 +155,41 @@ const movies = [
     shares: 20,
     remaining: 1000,
     bcinfo: {
-      address: "XXXX",
-      takenID: "XXXX",
-      block: "XXX",
-      blckhash: "XXX",
-      tradehash: "XXX",
+      address: 'XXXX',
+      takenID: 'XXXX',
+      block: 'XXX',
+      blckhash: 'XXX',
+      tradehash: 'XXX'
     },
     tradehist: [{
-      buyer: "XXXX",
-      seller: "XXX",
-      date: "XXX",
-      price: "100",
+      buyer: 'XXXX',
+      seller: 'XXX',
+      date: 'XXX',
+      price: '100'
     },
     {
-      buyer: "XXXX",
-      seller: "XXX",
-      date: "XXX",
-      price: "100",
+      buyer: 'XXXX',
+      seller: 'XXX',
+      date: 'XXX',
+      price: '100'
     },
     {
-      buyer: "XXXX",
-      seller: "XXX",
-      date: "XXX",
-      price: "100",
+      buyer: 'XXXX',
+      seller: 'XXX',
+      date: 'XXX',
+      price: '100'
     },
     {
-      buyer: "XXXX",
-      seller: "XXX",
-      date: "XXX",
-      price: "100",
+      buyer: 'XXXX',
+      seller: 'XXX',
+      date: 'XXX',
+      price: '100'
     },
     {
-      buyer: "XXXX",
-      seller: "XXX",
-      date: "XXX",
-      price: "100",
+      buyer: 'XXXX',
+      seller: 'XXX',
+      date: 'XXX',
+      price: '100'
     }]
   }
 ]

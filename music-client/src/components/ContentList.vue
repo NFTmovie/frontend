@@ -13,7 +13,6 @@
         <p class="item-name">{{item.name}}</p>
         <p class="item-name">{{item.director}}</p>
         <p class="item-name">{{item.releasedate}}</p>
-
       </li>
     </ul>
   </div>
@@ -23,7 +22,6 @@
 import mixin from '../mixins'
 import { ICON } from '../assets/icon/index'
 import ButtonStyle from '../components/ButtonStyle.vue'
-
 
 export default {
   name: 'content-list',

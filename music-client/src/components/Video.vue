@@ -4,7 +4,7 @@
       <li class="content-item" v-for="(item, index) in copyrightMovies" :key="index">
         <div class="kuo" @click="goAblum(item)">
           <img class="item-img" :src="item.picImg" alt="">
-            <div class="caption">《{{item.name}}》<br> 汇编权 </div>
+          <div class="caption">《{{item.name}}》<br> 汇编权 </div>
           <div class="mask"  @click="goAblum(item)">
             <svg class="icon" aria-hidden="true">
               <use :xlink:href="BOFANG"></use>
@@ -15,7 +15,7 @@
         <p class="item-name">收益分成：{{item.shares}}</p>
         <p class="item-name">{{item.releasedate}}</p>
         <button-style @onClick="goMovie(item)"
-        btn="购买" :description= "item.price + ' QTUM'" >
+                      btn="购买" :description= "item.price + ' QTUM'" >
         </button-style>
       </li>
     </ul>
@@ -34,7 +34,7 @@
         <p class="item-name">收益分成：{{copyrightMovies.shares}}</p>
         <p class="item-name">{{copyrightMovies.releasedate}}</p>
         <button-style @onClick="goMovie(copyrightMovies)"
-                      btn="购买" :description= "copyrightMovies.price + ' QTUM'" >
+                      btn="打赏" :description= "copyrightMovies.price + ' QTUM'" >
         </button-style>
       </li>
     </ul>
@@ -47,7 +47,7 @@ import { ICON } from '../assets/icon/index'
 import ButtonStyle from '../components/ButtonStyle.vue'
 
 export default {
-  name: 'copyright-list',
+  name: 'video',
   mixins: [mixin],
   components: {
     ButtonStyle

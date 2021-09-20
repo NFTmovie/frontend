@@ -30,7 +30,7 @@ import ButtonStyle from './ButtonStyle.vue'
 export default {
   name: 'fixed-list',
   mixins: [mixin],
-    components: {
+  components: {
     ButtonStyle
   },
   props: {

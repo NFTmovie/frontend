@@ -32,7 +32,7 @@ export default {
       pageSize: 15, // 页数
       currentPage: 1, // 当前页
       albumDatas: [],
-      movieList: movies // 歌单列表
+      movieList: movies
     }
   },
   computed: {

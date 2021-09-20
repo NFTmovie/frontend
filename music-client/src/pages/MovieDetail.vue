@@ -26,6 +26,20 @@
         {{ item.name }}
       </li>
     </ul>
+
+    <Video :copyrightMovies ="movies"
+                   path="MovieDetail" v-if="selected === 0"/>
+    <CopyrightList :copyrightMovies ="movies"
+                   path="MovieDetail" v-if="selected === 1"/>
+    <AuctionList
+      :auctionList ="movies"
+      path="MovieDetail" v-if="selected === 2"/>
+    <fixed-list
+      :fixedList ="movies"
+      path="MovieDetail"
+      v-if="selected === 2"
+    ></fixed-list>
+    <BuyTicket v-if="selected === 3"/>
   </div>
 </template>
 
@@ -36,24 +50,35 @@ import Comment from '../components/Comment'
 import { songStyle } from '../assets/data/songList'
 import { mapGetters } from 'vuex'
 import { HttpManager } from '../api/index'
+import AuctionList from '../components/AuctionList'
+import CopyrightList from '../components/CopyrightList'
+import Video from '../components/Video'
+import BuyTicket from '../components/BuyTicket'
+import { fixedPrice } from '../assets/data/fixedPrice'
 
 export default {
   name: 'song-list-album',
   mixins: [mixin],
   components: {
     AlbumContent,
-    Comment
+    Comment,
+    AuctionList,
+    CopyrightList,
+    Video,
+    BuyTicket,
+    fixedPrice
   },
   data () {
     return {
-      songLists: [],
-      movies: {},
+      movies: Array,
       count: 0, // 点赞数
       songListId: '', // 歌单ID
       value3: 0,
       value5: 0,
       activeName: '视频', // 默认选择栏
-      songStyle: songStyle // 歌手导航栏类别
+      songStyle: songStyle, // 歌手导航栏类别
+      selected: 0,
+      fixedartworks: fixedPrice
     }
   },
   computed: {
@@ -93,11 +118,21 @@ export default {
     handleChangeView: function (name) {
       this.activeName = name
       this.albumDatas = []
-      if (name === '全部歌单') {
-        this.getSongList(this.cur_page)
-      } else {
-        this.getSongListOfStyle(name)
+      switch (name) {
+        case '链上版权':
+          this.selected = 1
+          break
+        case '链上艺术品':
+          this.selected = 2
+          break
+        case '购买电影票':
+          this.selected = 3
+          break
+        case '视频':
+          this.selected = 0
+          break
       }
+      console.log(this.selected)
     },
 
     // 获取单里的歌曲

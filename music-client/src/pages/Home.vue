@@ -15,7 +15,7 @@
     <div class="section">
       <div class="section-title">电影列表</div>
       <content-list
-        :contentList="songList"
+        :contentList="movieList"
         path="movie-detail"
       ></content-list>
     </div>
@@ -26,16 +26,18 @@
 import ContentList from '../components/ContentList'
 import { swiperList } from '../assets/data/swiper'
 import { HttpManager } from '../api/index'
+import { movies } from '../assets/data/movieCR'
 
 export default {
   name: 'home',
   components: {
-    ContentList
+    ContentList,
+    movies
   },
   data () {
     return {
       swiperList: swiperList, // 轮播图列表
-      songList: swiperList // 歌单列表
+      movieList: movies // 歌单列表
     }
   },
   created () {
