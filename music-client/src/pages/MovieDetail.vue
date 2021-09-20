@@ -29,13 +29,13 @@
     <Video :copyrightMovies ="movies"
                    path="MovieDetail" v-if="selected === 0"/>
     <CopyrightList :copyrightMovies ="movies"
-                   path="MovieDetail" v-if="selected === 1"/>
+                   path="BuyCopyright" v-if="selected === 1"/>
     <AuctionList
       :auctionList ="movies"
-      path="MovieDetail" v-if="selected === 2"/>
+      path="BuyArtwork/Auction" v-if="selected === 2"/>
     <fixed-list
       :fixedList ="movies"
-      path="MovieDetail"
+      path="BuyArtwork/FixedPrice"
       v-if="selected === 2"
     ></fixed-list>
     <BuyTicket v-if="selected === 3"/>

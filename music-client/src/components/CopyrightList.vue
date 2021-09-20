@@ -24,7 +24,7 @@
         <div class="kuo" @click="goAblum(copyrightMovies)">
           <img class="item-img" :src="copyrightMovies.picImg" alt="">
           <div class="caption">《{{copyrightMovies.name}}》<br> 汇编权 </div>
-          <div class="mask"  @click="goAblum(item)">
+          <div class="mask"  @click="goAblum(copyrightMovies)">
             <svg class="icon" aria-hidden="true">
               <use :xlink:href="BOFANG"></use>
             </svg>
