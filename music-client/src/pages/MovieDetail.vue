@@ -54,7 +54,6 @@ import AuctionList from '../components/AuctionList'
 import CopyrightList from '../components/CopyrightList'
 import Video from '../components/Video'
 import BuyTicket from '../components/BuyTicket'
-import { fixedPrice } from '../assets/data/fixedPrice'
 
 export default {
   name: 'song-list-album',
@@ -65,8 +64,7 @@ export default {
     AuctionList,
     CopyrightList,
     Video,
-    BuyTicket,
-    fixedPrice
+    BuyTicket
   },
   data () {
     return {
