@@ -15,7 +15,7 @@
         <p class="item-name">收益分成：{{item.shares}}</p>
         <p class="item-name">{{item.releasedate}}</p>
 
-        <button-style @onClick="goMovie(item)"
+        <button-style @onClick="goMovie(item)" class="btn"
         btn="购买" :description= "item.price + ' QTUM'" >
         </button-style>
       </li>

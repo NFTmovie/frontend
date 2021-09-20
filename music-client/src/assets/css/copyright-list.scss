@@ -8,6 +8,9 @@
     @include layout(space-around, stretch, row, wrap);
   }
 }
+.btn{
+  height:70px;
+}
 
 .content-item {
   width: 286px;

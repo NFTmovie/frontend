@@ -1,6 +1,6 @@
 <template>
   <div class="header-search">
-      <span class="button-desc">{{description}}</span>
+      <span :width="width" :height="height" class="button-desc">{{description}}</span>
       <span class="search-btn"  @click="onClick()" >
           {{btn}}
       </span>
@@ -13,6 +13,8 @@ export default {
    props: {
     description: String,
     btn: String,
+    width: String,
+    height: String,
   },
   methods: {
     onClick() {
