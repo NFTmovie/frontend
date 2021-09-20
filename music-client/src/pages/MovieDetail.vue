@@ -26,7 +26,6 @@
         {{ item.name }}
       </li>
     </ul>
-
     <Video :copyrightMovies ="movies"
                    path="MovieDetail" v-if="selected === 0"/>
     <CopyrightList :copyrightMovies ="movies"
@@ -75,8 +74,7 @@ export default {
       value5: 0,
       activeName: '视频', // 默认选择栏
       songStyle: songStyle, // 歌手导航栏类别
-      selected: 0,
-      fixedartworks: fixedPrice
+      selected: 0
     }
   },
   computed: {
