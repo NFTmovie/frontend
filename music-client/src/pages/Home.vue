@@ -13,9 +13,9 @@
     </el-carousel>
     <!--电影列表-->
     <div class="section">
-      <div class="section-title">电影列表</div>
+      <div class="section-title" >电影列表</div>
       <content-list
-        :contentList="movieList"
+        :contentList="result.pageInfo"
         path="movie-detail"
       ></content-list>
     </div>
@@ -27,6 +27,7 @@ import ContentList from '../components/ContentList'
 import { swiperList } from '../assets/data/swiper'
 import { HttpManager } from '../api/index'
 import { movies } from '../assets/data/movieCR'
+import axios from 'axios'
 
 export default {
   name: 'home',
@@ -37,13 +38,24 @@ export default {
   data () {
     return {
       swiperList: swiperList, // 轮播图列表
-      movieList: movies // 歌单列表
+      movieList: movies, // 歌单列表
+      result: [],
+      loading: false
     }
   },
   created () {
-    // 获取歌单列表
-    // this.getSongList()
-    // 获取歌手列表
+    axios.get('http://82.157.177.72:8081/movie-nft-server/movie/batch-get-movies?currentPage=1&pageSize=100')
+      // then获取成功；response成功后的返回值（对象）
+      .then(response => {
+        this.result = response.data
+        this.loading = true
+        console.log(this.result)
+      })
+      // 获取失败
+      .catch(error => {
+        console.log(error)
+        alert('网络错误，不能访问')
+      })
   },
   methods: {
     getSongList () {

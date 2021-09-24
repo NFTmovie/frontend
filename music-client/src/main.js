@@ -12,7 +12,10 @@ import '@/assets/js/iconfont.js'
 import '@/assets/js/iconfont1.js'
 import '@/assets/js/iconfont2.js'
 import '@/assets/js/iconfont3.js'
+import axios from 'axios'
 
+Vue.prototype.$axios = axios
+axios.defaults.baseURL = '/api'
 Vue.use(Vuex)
 Vue.use(ElementUI)
 
