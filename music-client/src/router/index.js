@@ -63,9 +63,9 @@ const constantRoutes = [
         component: () => import('@/pages/Lyric')
       },
       {
-        path: '/search',
+        path: '/search/:keywords',
         name: 'search',
-        component: () => import('@/pages/Search')
+        component: () => import('@/components/SearchResult')
       },
       {
         path: '/setting',

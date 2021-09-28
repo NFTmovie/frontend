@@ -72,6 +72,7 @@ import mixin from '../mixins'
 import { mapGetters } from 'vuex'
 import { navMsg, loginMsg, menuList, dropBuyMsg, dropUploadMsg } from '../assets/data/header'
 import { ICON } from '../assets/icon/index'
+import axios from 'axios'
 
 export default {
 
@@ -144,17 +145,9 @@ export default {
       }
     },
     goSearch () {
-      var xmlhttp = new XMLHttpRequest()
-      var url = 'http://82.157.177.72:8082/movie-nft-servermovie/search?keyWord=%E9%A3%8E%E4%BA%91'
-      var type = 'GET'// 方法
-      xmlhttp.open(type, url, true)// 方法，接口，异步
-      xmlhttp.send()// 发送请求
-      xmlhttp.onreadystatechange = function () {
-        if (xmlhttp.status === 200 && xmlhttp.readyState === 4) {
-          var result = JSON.parse(xmlhttp.response) // 获取到的json数据
-          console.log(result)
-        }
-      }
+      this.$router.push({
+        path: `/search/${this.keywords}`
+      })
     }
   }
 }

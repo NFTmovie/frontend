@@ -4,7 +4,7 @@
       <div class="signUp-head">
         <span>上传影片</span>
       </div>
-      <el-form :model="uploadInfo" status-icon :rules="rules" ref="uploadInfo" label-width="120px" class="demo-ruleForm">
+      <el-form :model="uploadInfo" status-icon  ref="uploadInfo" label-width="120px" class="demo-ruleForm">
         <div style="width:500px;height:45px;border:2px solid #DD700C; background-color: #DD700C;align-content: center">
           <el-form-item prop="username" label="版权号" class="item">
             <el-input v-model="uploadInfo.recordNumber" placeholder="请输入" class="input"></el-input>
@@ -73,17 +73,30 @@
           </el-form-item>
         </div>
         <br>
-        <div style="width:500px;height:45px;border:2px solid #DD700C; background-color: #DD700C;align-content: center">
-          <el-form-item prop="introduction" label="封面" class="item">
-            <el-input  placeholder="点击上传" v-model="uploadInfo.post" class="input"></el-input>
+<!--        <div style="width:500px;height:45px;border:2px solid #DD700C; background-color: #DD700C;align-content: center">-->
+<!--          <el-form-item prop="introduction" label="封面" class="item">-->
+<!--            <el-input  placeholder="点击上传" v-model="uploadInfo.post" class="input"></el-input>-->
+<!--          </el-form-item>-->
+<!--        </div>-->
+        <br>
+        <div style="width:500px;height:150px;border:2px solid #DD700C; background-color: #DD700C;align-content: center">
+          <el-form-item prop="introduction" label="海报" class="item" >
+            <el-upload
+              ref="upload"
+              action="http://82.157.177.72:8081/movie-nft-server/file/uopload-image"
+              accept="image/png,image/gif,image/jpg,image/jpeg"
+              list-type="picture-card"
+              class="input"
+              :limit="1"
+              :on-success="handle_success"
+              :before-upload="beforeUpload"
+             >
+              <i class="el-icon-plus"></i>
+            </el-upload>
+<!--            <el-input  placeholder="点击上传" v-model="uploadInfo.preview" class="input"></el-input>-->
           </el-form-item>
         </div>
         <br>
-        <div style="width:500px;height:45px;border:2px solid #DD700C; background-color: #DD700C;align-content: center">
-          <el-form-item prop="introduction" label="海报" class="item">
-            <el-input  placeholder="点击上传" v-model="uploadInfo.preview" class="input"></el-input>
-          </el-form-item>
-        </div>
         <div class="login-btn">
           <el-button type="primary" @click="Upload" align="center">点击上传</el-button>
         </div>
@@ -97,7 +110,7 @@ import axios from 'axios'
 import { rules, cities } from '../assets/data/form'
 
 export default {
-  name: 'uploadinfo',
+  name: 'uploadInfo',
   data () {
     return {
       uploadInfo: { // 注册
@@ -119,14 +132,14 @@ export default {
     }
   },
   methods: {
+    handle_success (res) {
+      this.uploadInfo.preview = res
+      console.log(res)
+    },
     Upload () {
       let d = this.uploadInfo.publishTime
       let datetime = d.getFullYear().toString() + '-' + (d.getMonth() + 1).toString() + '-' + d.getDate().toString()
-      // params.append('plot', this.uploadInfo.plot)
-      // params.append('plot', this.uploadInfo.plot)
-      // params.append('avator', '/img/user.jpg')
-      console.log(datetime)
-      axios.post(`http://82.157.177.72:8081/movie-nft-server/movie/upload-movie?recordNumber=${this.uploadInfo.recordNumber}&chineseName=${this.uploadInfo.chineseName}&englishName=${this.uploadInfo.englishName}&director=${this.uploadInfo.director}&region=${this.uploadInfo.region}&producer=${this.uploadInfo.producer}&publishCompany=${this.uploadInfo.publishCompany}&publishTime=${datetime}&plot=%E9%B9%85%E4%B8%94%E4%BC%81%E9%B9%85%E3%80%81&intro=%E9%98%BF%E6%96%AF%E9%A1%BF&post=%E5%A4%A7&preview=%E5%88%80%E7%BE%A4%E8%88%9E`)
+      axios.post(`http://82.157.177.72:8081/movie-nft-server/movie/upload-movie?recordNumber=${this.uploadInfo.recordNumber}&chineseName=${this.uploadInfo.chineseName}&englishName=${this.uploadInfo.englishName}&director=${this.uploadInfo.director}&region=${this.uploadInfo.region}&producer=${this.uploadInfo.producer}&publishCompany=${this.uploadInfo.publishCompany}&publishTime=${datetime}&plot=vcx&intro=adda&post=${this.uploadInfo.post}&preview=${this.uploadInfo.preview}`)
         // then获取成功；response成功后的返回值（对象）
         .then(response => {
           alert('上传成功')
