@@ -10,13 +10,13 @@
     <div class="section">
       <div class="section-title">拍卖中</div>
       <auction-list
-        :auctionList ="movieList"
+        :auctionList ="movieList.pageInfo"
         path="BuyArtwork/Auction"
       ></auction-list>
 
       <div class="section-title">定价销售</div>
       <fixed-list
-        :fixedList ="fixedartworks"
+        :fixedList ="fixedartworks.pageInfo"
         path="BuyArtwork/FixedPrice"
       ></fixed-list>
 
@@ -27,9 +27,8 @@
 <script>
 import AuctionList from '../components/AuctionList'
 import FixedList from '../components/FixedList'
-import { movies } from '../assets/data/auction'
-import { fixedPrice } from '../assets/data/fixedPrice'
 import { HttpManager } from '../api/index'
+import axios from 'axios'
 export default {
   name: 'buy-artwork',
   components: {
@@ -42,8 +41,8 @@ export default {
       pageSize: 15, // 页数
       currentPage: 1, // 当前页
       albumDatas: [],
-      movieList: movies, // 歌单列表
-      fixedartworks: fixedPrice
+      movieList: [], // 歌单列表
+      fixedartworks: [],
     }
   },
   computed: {
@@ -53,7 +52,19 @@ export default {
     }
   },
   created () {
-    this.getAllSinger()
+    axios.get('http://82.157.177.72:8081/movie-nft-server/movie/batch-get-movies?currentPage=1&pageSize=100')
+      // then获取成功；response成功后的返回值（对象）
+      .then(response => {
+        this.movieList = response.data
+        this.fixedartworks = response.data
+        this.loading = true
+        console.log(this.movieList)
+      })
+      // 获取失败
+      .catch(error => {
+        console.log(error)
+        alert('网络错误，不能访问')
+      })
   },
   methods: {
     // 获取当前页
@@ -69,28 +80,6 @@ export default {
         this.getSingerSex(item.type)
       }
     },
-    // 获取所有歌手
-    getAllSinger () {
-      HttpManager.getAllSinger()
-        .then(res => {
-          this.currentPage = 1
-          this.albumDatas = res
-        })
-        .catch(err => {
-          console.log(err)
-        })
-    },
-    // 通过性别对歌手分类
-    getSingerSex (sex) {
-      HttpManager.getSingerOfSex(sex)
-        .then(res => {
-          this.currentPage = 1
-          this.albumDatas = res
-        })
-        .catch(err => {
-          console.log(err)
-        })
-    }
   }
 }
 </script>

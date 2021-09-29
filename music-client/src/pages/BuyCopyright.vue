@@ -10,7 +10,7 @@
     <div class="section">
       <div class="section-title">电影列表</div>
       <copyright-list
-        :copyrightMovies ="movieList"
+        :copyrightMovies ="result.pageInfo"
         path="BuyCopyright"
       ></copyright-list>
     </div>
@@ -19,8 +19,8 @@
 
 <script>
 import CopyrightList from '../components/CopyrightList'
-import { movies } from '../assets/data/movieCR'
-import { HttpManager } from '../api/index'
+import axios from 'axios'
+
 export default {
   name: 'buy-copyright',
   components: {
@@ -32,7 +32,7 @@ export default {
       pageSize: 15, // 页数
       currentPage: 1, // 当前页
       albumDatas: [],
-      movieList: movies
+      result: [],
     }
   },
   computed: {
@@ -41,8 +41,19 @@ export default {
       return this.albumDatas.slice((this.currentPage - 1) * this.pageSize, this.currentPage * this.pageSize)
     }
   },
-  created () {
-    this.getAllSinger()
+   created () {
+    axios.get('http://82.157.177.72:8081/movie-nft-server/movie/batch-get-movies?currentPage=1&pageSize=100')
+      // then获取成功；response成功后的返回值（对象）
+      .then(response => {
+        this.result = response.data
+        this.loading = true
+        console.log(this.result)
+      })
+      // 获取失败
+      .catch(error => {
+        console.log(error)
+        alert('网络错误，不能访问')
+      })
   },
   methods: {
     // 获取当前页
@@ -58,28 +69,6 @@ export default {
         this.getSingerSex(item.type)
       }
     },
-    // 获取所有歌手
-    getAllSinger () {
-      HttpManager.getAllSinger()
-        .then(res => {
-          this.currentPage = 1
-          this.albumDatas = res
-        })
-        .catch(err => {
-          console.log(err)
-        })
-    },
-    // 通过性别对歌手分类
-    getSingerSex (sex) {
-      HttpManager.getSingerOfSex(sex)
-        .then(res => {
-          this.currentPage = 1
-          this.albumDatas = res
-        })
-        .catch(err => {
-          console.log(err)
-        })
-    }
   }
 }
 </script>

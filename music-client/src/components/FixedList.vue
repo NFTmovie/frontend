@@ -1,7 +1,7 @@
 <template>
   <div class="content-list">
     <ul class="section-content">
-      <li class="content-item" v-for="(item, index) in fixedList" :key="index">
+      <li class="content-item" v-for="(item, index) in fixedList.slice((this.currentPage - 1) * this.pageSize, this.currentPage * this.pageSize)" :key="index">
         <div class="kuo" @click="goAblum(item)">
           <img class="item-img" :src="item.picImg" alt="">
           <div class="mask"  @click="goAblum(item)">
@@ -11,7 +11,7 @@
           </div>
         </div>
         <p class="item-name">{{item.name}}</p>
-        <p class="item-name">ID：{{item.id}}</p>
+        <p class="item-name">ID：{{item.movieId}}</p>
         <p class="item-name">{{item.releasedate}}</p>
 
         <button-style @onClick="goMovie(item)" class="btn"
@@ -19,6 +19,17 @@
         </button-style>
       </li>
     </ul>
+    <div class="pagination">
+      <el-pagination
+        align="right"
+        @current-change="handleCurrentChange"
+        background
+        layout="total, prev, pager, next"
+        :current-page="currentPage"
+        :page-size="pageSize"
+        :total="fixedList.length">
+      </el-pagination>
+    </div>
   </div>
 </template>
 
@@ -39,7 +50,10 @@ export default {
   },
   data () {
     return {
-      BOFANG: ICON.BOFANG
+      BOFANG: ICON.BOFANG,
+      url: 'http://82.157.177.72:8081/',
+      currentPage: 1,
+      pageSize: 6,
     }
   },
   methods: {

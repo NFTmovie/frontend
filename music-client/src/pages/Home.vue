@@ -26,19 +26,16 @@
 import ContentList from '../components/ContentList'
 import { swiperList } from '../assets/data/swiper'
 import { HttpManager } from '../api/index'
-import { movies } from '../assets/data/movieCR'
 import axios from 'axios'
 
 export default {
   name: 'home',
   components: {
     ContentList,
-    movies
   },
   data () {
     return {
       swiperList: swiperList, // 轮播图列表
-      movieList: movies, // 歌单列表
       result: [],
       loading: false
     }

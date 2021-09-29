@@ -49,7 +49,7 @@ export default {
       BOFANG: ICON.BOFANG,
       url: 'http://82.157.177.72:8081/',
       currentPage: 1,
-      pageSize: 1
+      pageSize: 6,
     }
   },
   methods: {
@@ -59,7 +59,7 @@ export default {
     },
     goMovieDetail (item) {
       this.$store.commit('setTempList', item)
-      this.$router.push({path: `/${this.path}/${item.id}`})
+      this.$router.push({path: `/${this.path}/${item.movieId}`})
     }
   }
 }
