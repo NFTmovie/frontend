@@ -33,11 +33,11 @@
     <AuctionList
       :auctionList ="movies"
       path="BuyArtwork/Auction" v-if="selected === 2"/>
-    <fixed-list
+    <FixedList
       :fixedList ="movies"
       path="BuyArtwork/FixedPrice"
       v-if="selected === 2"
-    ></fixed-list>
+    ></FixedList>
     <BuyTicket v-if="selected === 3"/>
   </div>
 </template>
@@ -51,6 +51,7 @@ import { mapGetters } from 'vuex'
 import { HttpManager } from '../api/index'
 import AuctionList from '../components/AuctionList'
 import CopyrightList from '../components/CopyrightList'
+import FixedList from '../components/FixedList.vue'
 import Video from '../components/Video'
 import BuyTicket from '../components/BuyTicket'
 
@@ -63,7 +64,8 @@ export default {
     AuctionList,
     CopyrightList,
     Video,
-    BuyTicket
+    BuyTicket,
+    FixedList,
   },
   data () {
     return {
@@ -92,6 +94,7 @@ export default {
   created () {
     this.songListId = this.tempList.id // 给歌单ID赋值
     this.movies = this.tempList
+    console.log(this.movies);
     this.getSongId() // 获取歌单里面的歌曲ID
     this.getRank(this.songListId) // 获取评分
   },

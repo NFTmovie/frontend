@@ -6,11 +6,11 @@
         <img :src="movies.picImg" alt="" />
       </div>
       <div class="movie-info">
-        <h1>《{{ movies.name }}》汇编权</h1>
+        <h1>《{{ movies.chineseName }}》汇编权</h1>
         <span>
-          ID: {{ movies.id }}
+          ID: {{ movies.movieId }}
           <br>
-          发行日期：{{ movies.releasedate }}
+          发行日期：{{ movies.publishTime }}
           <br>
           剧情：{{ movies.plot }}
         </span>
@@ -75,6 +75,9 @@ export default {
       'tempList'
     ]),
     'columns': function columns () {
+      if (this.movies.tradehist == null){
+        return []
+      }
       if (this.movies.tradehist.length == 0) {
         return []
       }
@@ -85,8 +88,6 @@ export default {
   created () {
     this.movies = this.tempList
     console.log(this.movies)
-    this.getSongId() // 获取歌单里面的歌曲ID
-    this.getRank(this.songListId) // 获取评分
   },
   methods: {
 
