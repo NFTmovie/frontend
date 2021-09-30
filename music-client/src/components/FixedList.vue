@@ -14,7 +14,7 @@
         <p class="item-name">ID：{{item.movieId}}</p>
         <p class="item-name">{{item.releasedate}}</p>
 
-        <button-style @onClick="goMovie(item)" class="btn"
+        <button-style @onClick="buy" class="btn"
         btn="购买" :description= "'当前 ' + item.price + ' QTUM'" >
         </button-style>
       </li>
@@ -34,6 +34,7 @@
 </template>
 
 <script>
+import {Qtum} from 'qtumjs'
 import mixin from '../mixins'
 import { ICON } from '../assets/icon/index'
 import ButtonStyle from './ButtonStyle.vue'
@@ -53,10 +54,22 @@ export default {
       BOFANG: ICON.BOFANG,
       url: 'http://82.157.177.72:8081/',
       currentPage: 1,
-      pageSize: 6,
+      pageSize: 6
     }
   },
   methods: {
+    async buy () {
+      const contractInfo = require('../../static/contractInfo.json')
+      const qtum = new Qtum('http://ang:qtum@localhost:8010', contractInfo)
+      // const qtum = new Qtum("http://test:test1234@152.136.130.81:13889", contractInfo);
+      const contract = qtum.contract('MovieNFT.sol')
+
+      const tx = await contract.send(
+        'publishMovie',
+        ['0814bfacfac50c2b0ce0688e9fba219a17fd934e', 'baidu.com/1'],
+        {senderAddress: 'qgtn7J8W6r6c2bGyD59adicoMcnrCBpeN5', amount: '0.00'})
+      alert('Success! Tx id:' + tx.txid)
+    },
     goMovie (item) {
       this.$store.commit('setTempList', item)
       this.$router.push({path: `/${this.path}/${item.id}`})

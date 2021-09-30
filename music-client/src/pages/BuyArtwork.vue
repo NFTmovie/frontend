@@ -8,11 +8,11 @@
     </div>
 
     <div class="section">
-      <div class="section-title">拍卖中</div>
-      <auction-list
-        :auctionList ="movieList.pageInfo"
-        path="BuyArtwork/Auction"
-      ></auction-list>
+<!--      <div class="section-title">拍卖中</div>-->
+<!--      <auction-list-->
+<!--        :auctionList ="movieList.pageInfo"-->
+<!--        path="BuyArtwork/Auction"-->
+<!--      ></auction-list>-->
 
       <div class="section-title">定价销售</div>
       <fixed-list
@@ -42,7 +42,7 @@ export default {
       currentPage: 1, // 当前页
       albumDatas: [],
       movieList: [], // 歌单列表
-      fixedartworks: [],
+      fixedartworks: []
     }
   },
   computed: {
@@ -79,7 +79,7 @@ export default {
       } else {
         this.getSingerSex(item.type)
       }
-    },
+    }
   }
 }
 </script>

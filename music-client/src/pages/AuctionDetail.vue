@@ -17,7 +17,7 @@
           剧情：{{ movies.plot }}
         </span>
       </div>
-      <button-style @click="buy" lick= class="buy-btn"
+      <button-style @onClick="buy" lick= class="buy-btn"
         btn="购买" :description= "movies.price + ' QTUM'" >
       </button-style>
 
