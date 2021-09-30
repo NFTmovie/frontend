@@ -31,15 +31,15 @@
           </el-dropdown-menu>
         </el-dropdown>
       </li>
-      <li>
-        <el-dropdown @command="goPage">
-          <el-button>
-            增值服务<i class="el-icon-arrow-down el-icon--right"></i>
-          </el-button>
-          <el-dropdown-menu slot="dropdown">
-            <el-dropdown-item >粉丝空投</el-dropdown-item>          </el-dropdown-menu>
-        </el-dropdown>
-      </li>
+<!--      <li>-->
+<!--        <el-dropdown @command="goPage">-->
+<!--          <el-button>-->
+<!--            增值服务<i class="el-icon-arrow-down el-icon&#45;&#45;right"></i>-->
+<!--          </el-button>-->
+<!--          <el-dropdown-menu slot="dropdown">-->
+<!--            <el-dropdown-item >粉丝空投</el-dropdown-item>          </el-dropdown-menu>-->
+<!--        </el-dropdown>-->
+<!--      </li>-->
       <li :class="{active: navMsg[1].name === activeName}"  :key="navMsg[0].path" @click="goPage(JSON.stringify(navMsg[1]))">
         {{navMsg[1].name}}
       </li>
