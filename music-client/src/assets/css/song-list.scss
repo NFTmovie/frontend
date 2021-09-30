@@ -2,7 +2,7 @@
 @import "global.scss";
 
 .song-list {
-  margin: 30px 150px;
+  margin:10px 150px;
   margin-top: 0;
   padding-top: $header-height;
   padding-bottom: 50px;
@@ -15,9 +15,9 @@
   padding: 0 40px;
   li {
     display: inline-block;
-    line-height: 40px;
-    margin: 40px 20px 15px 20px;
-    font-size: 20px;
+    line-height: 20px;
+    margin: 20px 10px 15px 10px;
+    font-size: 10px;
     font-weight: 400;
     color: $color-white;
     background-color: #262626;

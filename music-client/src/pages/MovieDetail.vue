@@ -16,16 +16,40 @@
         </span>
       </div>
     </div>
+    <el-row style="margin-top: 10px">
     <ul class="song-list-header">
+      <el-col :span="6">
       <li
-        v-for="(item, index) in songStyle"
-        :key="index"
-        :class="{ active: item.name === activeName }"
-        @click="handleChangeView(item.name)"
+        @click="handleChangeView('视频')"
       >
-        {{ item.name }}
+        视频
       </li>
+      </el-col>
+      <el-col :span="6">
+        <li
+
+          @click="handleChangeView('链上版权')"
+        >
+        链上版权
+        </li>
+      </el-col>
+      <el-col :span="6">
+        <li
+
+          @click="handleChangeView('链上艺术品')"
+        >
+          链上艺术品
+        </li>
+      </el-col>
+      <el-col :span="6">
+        <li
+          @click="handleChangeView('购买电影票')"
+        >
+          购买电影票
+        </li>
+      </el-col>
     </ul>
+    </el-row>
     <Video :copyrightMovies ="movies"
                    path="MovieDetail" v-if="selected === 0"/>
     <CopyrightList :copyrightMovies ="movies"
@@ -65,7 +89,7 @@ export default {
     CopyrightList,
     Video,
     BuyTicket,
-    FixedList,
+    FixedList
   },
   data () {
     return {
@@ -94,7 +118,7 @@ export default {
   created () {
     this.songListId = this.tempList.id // 给歌单ID赋值
     this.movies = this.tempList
-    console.log(this.movies);
+    console.log(this.movies)
     this.getSongId() // 获取歌单里面的歌曲ID
     this.getRank(this.songListId) // 获取评分
   },
