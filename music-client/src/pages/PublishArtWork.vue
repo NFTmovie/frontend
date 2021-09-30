@@ -100,7 +100,7 @@ export default {
         ['0814bfacfac50c2b0ce0688e9fba219a17fd934e', 'baidu.com/1'],
         {senderAddress: 'qgtn7J8W6r6c2bGyD59adicoMcnrCBpeN5', amount: '0.00'})
 
-      alert('Success! Tx id:', tx.txid)
+      alert('Success! Tx id:' + tx.txid)
 
       let d = this.artworkInfo.publishTime
       let datetime = d.getFullYear().toString() + '-' + (d.getMonth() + 1).toString() + '-' + d.getDate().toString()

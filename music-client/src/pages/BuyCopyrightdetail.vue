@@ -14,7 +14,7 @@
           <br>
           剧情：{{ movies.plot }}
         </span>
-        <button-style class="buy-btn" @onClick=buy(movies)
+        <button-style class="buy-btn" @click="buy"
           btn="购买" :description= "movies.price + ' QTUM'" >
         </button-style>
       </div>
@@ -48,6 +48,7 @@
 </template>
 
 <script>
+import {Qtum} from 'qtumjs'
 import mixin from '../mixins'
 import ButtonStyle from '../components/ButtonStyle'
 import { mapGetters } from 'vuex'
@@ -75,7 +76,7 @@ export default {
       'tempList'
     ]),
     'columns': function columns () {
-      if (this.movies.tradehist == null){
+      if (this.movies.tradehist == null) {
         return []
       }
       if (this.movies.tradehist.length == 0) {
@@ -90,7 +91,18 @@ export default {
     console.log(this.movies)
   },
   methods: {
+    async buy () {
+      const contractInfo = require('../../static/contractInfo.json')
+      const qtum = new Qtum('http://ang:qtum@localhost:8010', contractInfo)
+      // const qtum = new Qtum("http://test:test1234@152.136.130.81:13889", contractInfo);
+      const contract = qtum.contract('MovieNFT.sol')
 
+      const tx = await contract.send(
+        'publishMovie',
+        ['0814bfacfac50c2b0ce0688e9fba219a17fd934e', 'baidu.com/1'],
+        {senderAddress: 'qgtn7J8W6r6c2bGyD59adicoMcnrCBpeN5', amount: '0.00'})
+      alert('Success! Tx id:' + tx.txid)
+    }
   }
 }
 </script>
