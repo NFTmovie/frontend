@@ -35,7 +35,6 @@
       </el-col>
       <el-col :span="6">
         <li
-
           @click="handleChangeView('链上艺术品')"
         >
           链上艺术品

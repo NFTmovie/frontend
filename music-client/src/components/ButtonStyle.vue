@@ -1,6 +1,6 @@
 <template>
   <div class="header-search">
-      <span class="button-desc">{{description}}</span>
+    <el-input placeholder="请输入" class="input"></el-input>
       <span class="search-btn"  @click="onClick()" >
           {{btn}}
       </span>
@@ -29,4 +29,10 @@ export default {
 
 <style lang="scss" scoped>
 @import '../assets/css/button-style.scss';
+.input>>>.el-input__inner{
+  margin-top: 2px;
+  background-color: #262626;
+  color: #DD700C;
+  border-color: #DD700C;
+}
 </style>
