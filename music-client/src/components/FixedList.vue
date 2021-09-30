@@ -2,17 +2,12 @@
   <div class="content-list">
     <ul class="section-content">
       <li class="content-item" v-for="(item, index) in fixedList.slice((this.currentPage - 1) * this.pageSize, this.currentPage * this.pageSize)" :key="index">
-        <div class="kuo" @click="goAblum(item)">
-          <img class="item-img" :src="item.picImg" alt="">
-          <div class="mask"  @click="goAblum(item)">
-            <svg class="icon" aria-hidden="true">
-              <use :xlink:href="BOFANG"></use>
-            </svg>
-          </div>
+        <div class="kuo">
+          <img class="item-img" :src="url + item.cover" alt="">
         </div>
-        <p class="item-name">{{item.name}}</p>
-        <p class="item-name">ID：{{item.movieId}}</p>
-        <p class="item-name">{{item.releasedate}}</p>
+        <p class="item-name">艺术品名称：{{item.artworkName}}</p>
+        <p class="item-name">ID：{{item.artworkId}}</p>
+        <p class="item-name">发行时间：{{item.publishTime}}</p>
 
         <button-style @onClick="buy" class="btn"
         btn="购买" :description= "'当前 ' + item.price + ' QTUM'" >
@@ -51,7 +46,6 @@ export default {
   },
   data () {
     return {
-      BOFANG: ICON.BOFANG,
       url: 'http://82.157.177.72:8081/',
       currentPage: 1,
       pageSize: 6
@@ -70,9 +64,17 @@ export default {
         {senderAddress: 'qgtn7J8W6r6c2bGyD59adicoMcnrCBpeN5', amount: '0.00'})
       alert('Success! Tx id:' + tx.txid)
     },
-    goMovie (item) {
-      this.$store.commit('setTempList', item)
-      this.$router.push({path: `/${this.path}/${item.id}`})
+    handleCurrentChange (val) {
+      this.currentPage = val
+    },
+    handleChangeView (item) {
+      this.activeName = item.name
+      this.albumDatas = []
+      if (item.name === '全部歌手') {
+        this.getAllSinger()
+      } else {
+        this.getSingerSex(item.type)
+      }
     }
   }
 }

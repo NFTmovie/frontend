@@ -1,11 +1,5 @@
 <template>
   <div class="singer">
-    <div class="header-search">
-      <input type="text" placeholder="可输入电影名称/版权名称/ID等" @keyup.enter="goSearch()" v-model="keywords">
-      <div class="search-btn"  @click="goSearch()" >
-        搜索
-      </div>
-    </div>
 
     <div class="section">
 <!--      <div class="section-title">拍卖中</div>-->
@@ -52,7 +46,7 @@ export default {
     }
   },
   created () {
-    axios.get('http://82.157.177.72:8081/movie-nft-server/movie/batch-get-movies?currentPage=1&pageSize=100')
+    axios.get('http://82.157.177.72:8081/movie-nft-server/artwork/batch-get-artworks?currentPage=1&pageSize=100')
       // then获取成功；response成功后的返回值（对象）
       .then(response => {
         this.movieList = response.data
@@ -68,18 +62,7 @@ export default {
   },
   methods: {
     // 获取当前页
-    handleCurrentChange (val) {
-      this.currentPage = val
-    },
-    handleChangeView (item) {
-      this.activeName = item.name
-      this.albumDatas = []
-      if (item.name === '全部歌手') {
-        this.getAllSinger()
-      } else {
-        this.getSingerSex(item.type)
-      }
-    }
+
   }
 }
 </script>

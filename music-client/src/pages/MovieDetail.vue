@@ -3,52 +3,29 @@
   <div class="song-list-album">
     <div class="album-slide">
       <div class="album-img">
-        <img :src="movies.picImg" alt="" />
+        <img :src="url + currentMovie.preview" alt="" />
       </div>
       <div class="movie-info">
-        <h1>{{ movies.name }}</h1>
+        <h1>{{ movies.chineseName }}</h1>
         <span>
           导演：{{ movies.director }}
           <br>
-          发行日期：{{ movies.releasedate }}
+          发行日期：{{ movies.publishTime }}
           <br>
-          剧情：{{ movies.plot }}
+          剧情：{{ movies.intro }}
         </span>
       </div>
     </div>
-    <el-row style="margin-top: 10px">
     <ul class="song-list-header">
-      <el-col :span="6">
       <li
-        @click="handleChangeView('视频')"
+        v-for="(item, index) in songStyle"
+        :key="index"
+        :class="{ active: item.name === activeName }"
+        @click="handleChangeView(item.name)"
       >
-        视频
+        {{ item.name }}
       </li>
-      </el-col>
-      <el-col :span="6">
-        <li
-
-          @click="handleChangeView('链上版权')"
-        >
-        链上版权
-        </li>
-      </el-col>
-      <el-col :span="6">
-        <li
-          @click="handleChangeView('链上艺术品')"
-        >
-          链上艺术品
-        </li>
-      </el-col>
-      <el-col :span="6">
-        <li
-          @click="handleChangeView('购买电影票')"
-        >
-          购买电影票
-        </li>
-      </el-col>
     </ul>
-    </el-row>
     <Video :copyrightMovies ="movies"
                    path="MovieDetail" v-if="selected === 0"/>
     <CopyrightList :copyrightMovies ="movies"
@@ -66,6 +43,7 @@
 </template>
 
 <script>
+import axios from 'axios'
 import mixin from '../mixins'
 import AlbumContent from '../components/AlbumContent'
 import Comment from '../components/Comment'
@@ -99,7 +77,9 @@ export default {
       value5: 0,
       activeName: '视频', // 默认选择栏
       songStyle: songStyle, // 歌手导航栏类别
-      selected: 0
+      selected: 0,
+      currentMovie: '',
+      url: 'http://82.157.177.72:8081/'
     }
   },
   computed: {
@@ -115,11 +95,15 @@ export default {
     this.handleChangeView('视频')
   },
   created () {
+    axios.get(`http://82.157.177.72:8081/movie-nft-server/movie/movie-info?movieId=${this.$route.params.movieId}`)
+      .then(response => {
+        this.currentMovie = response.data
+      })
     this.songListId = this.tempList.id // 给歌单ID赋值
     this.movies = this.tempList
-    console.log(this.movies)
     this.getSongId() // 获取歌单里面的歌曲ID
     this.getRank(this.songListId) // 获取评分
+    console.log(this.$route.params.movieId)
   },
   methods: {
     // 收集歌单里面的歌曲

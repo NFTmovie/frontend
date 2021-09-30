@@ -53,6 +53,23 @@
           </el-form-item>
         </div>
         <br>
+        <div style="width:500px;height:150px;border:2px solid #DD700C; background-color: #DD700C;align-content: center">
+          <el-form-item  label="封面" class="item" >
+            <el-upload
+              ref="upload"
+              action="http://82.157.177.72:8081/movie-nft-server/file/uopload-image"
+              accept="image/png,image/gif,image/jpg,image/jpeg"
+              list-type="picture-card"
+              class="input"
+              :limit="1"
+              :on-success="handle_success"
+            >
+              <i class="el-icon-plus"></i>
+            </el-upload>
+            <!--            <el-input  placeholder="点击上传" v-model="uploadInfo.preview" class="input"></el-input>-->
+          </el-form-item>
+        </div>
+        <br>
         <div class="login-btn">
           <el-button type="primary" @click="SignUp" align="center">发布</el-button>
         </div>
@@ -82,29 +99,34 @@ export default {
         price: '',
         publishTime: '',
         intro: '',
-        artworkStatus: ''
+        artworkStatus: '',
+        cover: ''
       },
       rules: rules,
       cities: cities
     }
   },
   methods: {
+    handle_success (res) {
+      this.artworkInfo.cover = res
+      console.log(res)
+    },
     async SignUp () {
-      const contractInfo = require('../../static/contractInfo.json')
-      const qtum = new Qtum('http://ang:qtum@localhost:8010', contractInfo)
-      // const qtum = new Qtum("http://test:test1234@152.136.130.81:13889", contractInfo);
-      const contract = qtum.contract('MovieNFT.sol')
+      // const contractInfo = require('../../static/contractInfo.json')
+      // const qtum = new Qtum('http://ang:qtum@localhost:8010', contractInfo)
+      // // const qtum = new Qtum("http://test:test1234@152.136.130.81:13889", contractInfo);
+      // const contract = qtum.contract('MovieNFT.sol')
 
-      const tx = await contract.send(
-        'publishMovie',
-        ['0814bfacfac50c2b0ce0688e9fba219a17fd934e', 'baidu.com/1'],
-        {senderAddress: 'qgtn7J8W6r6c2bGyD59adicoMcnrCBpeN5', amount: '0.00'})
-
-      alert('Success! Tx id:' + tx.txid)
+      // const tx = await contract.send(
+      //   'publishMovie',
+      //   ['0814bfacfac50c2b0ce0688e9fba219a17fd934e', 'baidu.com/1'],
+      //   {senderAddress: 'qgtn7J8W6r6c2bGyD59adicoMcnrCBpeN5', amount: '0.00'})
+      //
+      // alert('Success! Tx id:' + tx.txid)
 
       let d = this.artworkInfo.publishTime
       let datetime = d.getFullYear().toString() + '-' + (d.getMonth() + 1).toString() + '-' + d.getDate().toString()
-      axios.post(`http://82.157.177.72:8081/movie-nft-server/artwork/upload?artworkName=${this.artworkInfo.artworkName}&quantity=${this.artworkInfo.quantity}&price=${this.artworkInfo.price}&publishTime=${datetime}&intro=${this.artworkInfo.intro}&artworkStatus=${this.artworkInfo.artworkStatus}`)
+      axios.post(`http://82.157.177.72:8081/movie-nft-server/artwork/upload?artworkName=${this.artworkInfo.artworkName}&quantity=${this.artworkInfo.quantity}&price=${this.artworkInfo.price}&publishTime=${datetime}&intro=${this.artworkInfo.intro}&artworkStatus=${this.artworkInfo.artworkStatus}&cover=${this.artworkInfo.cover}`)
       // then获取成功；response成功后的返回值（对象）
         .then(response => {
           alert('上传成功')

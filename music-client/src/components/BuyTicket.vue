@@ -20,7 +20,7 @@
         </div>
         <br>
         <div class="login-btn">
-          <el-button type="primary" @click="SignUp" align="center">购买</el-button>
+          <el-button type="primary" @click="buy" align="center">购买</el-button>
         </div>
       </el-form>
     </div>
@@ -28,6 +28,7 @@
 </template>
 
 <script>
+import Qtum from 'qtumjs'
 import mixin from '../mixins'
 import loginLogo from '../components/LoginLogo'
 import { rules, cities } from '../assets/data/form'
@@ -56,35 +57,17 @@ export default {
     }
   },
   methods: {
-    SignUp () {
-      let _this = this
-      let d = this.registerForm.birth
-      let datetime = d.getFullYear() + '-' + (d.getMonth() + 1) + '-' + d.getDate()
-      let params = new URLSearchParams()
-      params.append('username', this.registerForm.username)
-      params.append('password', this.registerForm.password)
-      params.append('sex', this.registerForm.sex)
-      params.append('phone_num', this.registerForm.phoneNum)
-      params.append('email', this.registerForm.email)
-      params.append('birth', datetime)
-      params.append('introduction', this.registerForm.introduction)
-      params.append('location', this.registerForm.location)
-      params.append('avator', '/img/user.jpg')
-      HttpManager.SignUp(params)
-        .then(res => {
-          console.log(res)
-          if (res.code === 1) {
-            _this.notify('注册成功', 'success')
-            setTimeout(function () {
-              _this.$router.push({path: '/'})
-            }, 2000)
-          } else {
-            _this.notify('注册失败', 'error')
-          }
-        })
-        .catch(err => {
-          console.log(err)
-        })
+    async buy () {
+      const contractInfo = require('../../static/contractInfo.json')
+      const qtum = new Qtum('http://ang:qtum@localhost:8010', contractInfo)
+      // const qtum = new Qtum("http://test:test1234@152.136.130.81:13889", contractInfo);
+      const contract = qtum.contract('MovieNFT.sol')
+
+      const tx = await contract.send(
+        'publishMovie',
+        ['0814bfacfac50c2b0ce0688e9fba219a17fd934e', 'baidu.com/1'],
+        {senderAddress: 'qgtn7J8W6r6c2bGyD59adicoMcnrCBpeN5', amount: '0.00'})
+      alert('Success! Tx id:' + tx.txid)
     },
     goback (index) {
       this.$router.go(index)

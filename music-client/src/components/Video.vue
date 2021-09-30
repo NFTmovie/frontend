@@ -14,8 +14,8 @@
         <p class="item-name">所剩数量：{{item.remaining}}</p>
         <p class="item-name">收益分成：{{item.shares}}</p>
         <p class="item-name">{{item.releasedate}}</p>
-        <button-style @onClick="goMovie(item)"
-                      btn="购买" :description= "item.price + ' QTUM'" >
+        <button-style @onClick="buy"
+                      btn="购买" >
         </button-style>
       </li>
     </ul>
@@ -33,7 +33,7 @@
         <p class="item-name">所剩数量：{{copyrightMovies.remaining}}</p>
         <p class="item-name">收益分成：{{copyrightMovies.shares}}</p>
         <p class="item-name">{{copyrightMovies.releasedate}}</p>
-        <button-style @onClick="goMovie(copyrightMovies)"
+        <button-style @onClick="buy"
                       btn="打赏" :description= "copyrightMovies.price + ' QTUM'" >
         </button-style>
       </li>
@@ -42,6 +42,7 @@
 </template>
 
 <script>
+import {Qtum} from 'qtumjs'
 import mixin from '../mixins'
 import { ICON } from '../assets/icon/index'
 import ButtonStyle from '../components/ButtonStyle.vue'
@@ -62,6 +63,18 @@ export default {
     }
   },
   methods: {
+    async buy () {
+      const contractInfo = require('../../static/contractInfo.json')
+      const qtum = new Qtum('http://ang:qtum@localhost:8010', contractInfo)
+      // const qtum = new Qtum("http://test:test1234@152.136.130.81:13889", contractInfo);
+      const contract = qtum.contract('MovieNFT.sol')
+
+      const tx = await contract.send(
+        'publishMovie',
+        ['0814bfacfac50c2b0ce0688e9fba219a17fd934e', 'baidu.com/1'],
+        {senderAddress: 'qgtn7J8W6r6c2bGyD59adicoMcnrCBpeN5', amount: '0.00'})
+      alert('Success! Tx id:' + tx.txid)
+    },
     goMovie (item) {
       this.$store.commit('setTempList', item)
       this.$router.push({path: `/${this.path}/${item.id}`})

@@ -1,11 +1,5 @@
 <template>
   <div class="singer">
-    <div class="header-search">
-      <input type="text" placeholder="可输入电影名称/版权名称/ID等" @keyup.enter="goSearch()" v-model="keywords">
-      <div class="search-btn"  @click="goSearch()" >
-        搜索
-      </div>
-    </div>
 
     <div class="section">
       <div class="section-title">电影列表</div>
@@ -32,7 +26,7 @@ export default {
       pageSize: 15, // 页数
       currentPage: 1, // 当前页
       albumDatas: [],
-      result: [],
+      result: []
     }
   },
   computed: {
@@ -41,7 +35,7 @@ export default {
       return this.albumDatas.slice((this.currentPage - 1) * this.pageSize, this.currentPage * this.pageSize)
     }
   },
-   created () {
+  created () {
     axios.get('http://82.157.177.72:8081/movie-nft-server/movie/batch-get-movies?currentPage=1&pageSize=100')
       // then获取成功；response成功后的返回值（对象）
       .then(response => {
@@ -68,7 +62,7 @@ export default {
       } else {
         this.getSingerSex(item.type)
       }
-    },
+    }
   }
 }
 </script>

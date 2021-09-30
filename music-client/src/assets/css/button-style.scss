@@ -28,9 +28,9 @@
         color: $color-white;
         background-color: $color-orange;
         border: #dd6f0d solid 5px;
-        font-size: 24px;
+        font-size: 25px;
         width: 30%;
-        height: 30%;
+        height: 80%;
         cursor: pointer;
         .icon {
             @include icon(1.2em, $color-white);
