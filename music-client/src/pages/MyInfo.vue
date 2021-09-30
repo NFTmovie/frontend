@@ -104,5 +104,5 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import '../assets/css/buycopyright.scss';
+@import '../assets/css/my-info.scss';
 </style>
