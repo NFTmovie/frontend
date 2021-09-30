@@ -6,7 +6,7 @@
       </div>
       <el-form :model="copyrightInfo" status-icon  ref="copyrightInfo" label-width="120px" class="demo-ruleForm">
         <div style="width:500px;height:45px;border:2px solid #DD700C; background-color: #DD700C;align-content: center">
-          <el-form-item prop="username" label="选择电影" class="item">
+          <el-form-item  label="选择电影" class="item">
             <el-select v-model="copyrightInfo.movieId" placeholder="请输入" style="width:100%" class="input">
               <el-option v-for="item in res" :key="item.movieId" :label="item.movieId" :value="item.movieId"></el-option>
             </el-select>
@@ -14,21 +14,21 @@
         </div>
         <br>
         <div style="width:500px;height:45px;border:2px solid #DD700C; background-color: #DD700C;align-content: center">
-          <el-form-item prop="username" label="选择版权" class="item">
+          <el-form-item  label="选择版权类型" class="item">
             <el-select v-model="copyrightInfo.copyrightType" placeholder="请输入" style="width:100%" class="input">
-              <el-option v-for="item in res" :key="item.value" :label="item.label" :value="item.movieId"></el-option>
+              <el-option v-for="(item,index) in 3" :key="index" :label="index" :value="index"></el-option>
             </el-select>
           </el-form-item>
         </div>
         <br>
         <div style="width:500px;height:45px;border:2px solid #DD700C; background-color: #DD700C;align-content: center">
-          <el-form-item prop="introduction" label="价格" class="item">
+          <el-form-item  label="价格" class="item">
             <el-input  placeholder="请输入" v-model="copyrightInfo.price" class="input"></el-input>
           </el-form-item>
         </div>
         <br>
         <div style="width:500px;height:45px;border:2px solid #DD700C; background-color: #DD700C;align-content: center">
-          <el-form-item prop="email" label="数量" class="item">
+          <el-form-item  label="数量" class="item">
             <el-input v-model="copyrightInfo.quantity" placeholder="请输入" class="input"></el-input>
           </el-form-item>
         </div>
@@ -37,7 +37,7 @@
         <!--          <el-date-picker type="date" placeholder="选择日期" v-model="copyrightInfo.birth" style="width: 100%;"></el-date-picker>-->
         <!--        </el-form-item>-->
         <div style="width:500px;height:45px;border:2px solid #DD700C; background-color: #DD700C;align-content: center">
-          <el-form-item prop="introduction" label="收益分成" class="item">
+          <el-form-item  label="收益分成" class="item">
             <el-input  placeholder="请输入" v-model="copyrightInfo.share" class="input"></el-input>
           </el-form-item>
         </div>
@@ -84,7 +84,8 @@ export default {
         copyrightType: '',
         price: '',
         quantity: '',
-        share: ''
+        share: '',
+        recordNumber: ''
       },
       res: [],
       rules: rules
@@ -92,6 +93,13 @@ export default {
   },
   methods: {
     async Publish () {
+      let i = 0
+      while (i < this.res.length) {
+        if (this.copyrightInfo.movieId === this.res[i].movieId) {
+          this.copyrightInfo.recordNumber = this.res[i].recordNumber
+          break
+        }
+      }
       // const contractInfo = require('../../static/contractInfo.json')
       // const qtum = new Qtum('http://ang:qtum@localhost:8010', contractInfo)
       // // const qtum = new Qtum("http://test:test1234@152.136.130.81:13889", contractInfo);
@@ -104,7 +112,7 @@ export default {
       //
       // alert('Success! Tx id:' + tx.txid)
 
-      axios.post(`http://82.157.177.72:8081/movie-nft-server/movie/upload-copyright?movieId=${this.copyrightInfo.movieId}&copyrightType=${this.copyrightInfo.copyrightType}&price=${this.copyrightInfo.price}&quantity=${this.copyrightInfo.quantity}&share=${this.copyrightInfo.share}`)
+      axios.post(`http://82.157.177.72:8081/movie-nft-server/movie/upload-copyright?movieId=${this.copyrightInfo.movieId}&copyrightType=${this.copyrightInfo.copyrightType}&price=${this.copyrightInfo.price}&quantity=${this.copyrightInfo.quantity}&share=${this.copyrightInfo.share}&recordNumber=${this.copyrightInfo.recordNumber}`)
         // then获取成功；response成功后的返回值（对象）
         .then(response => {
           alert('上传成功')
