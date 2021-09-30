@@ -6,19 +6,19 @@
       </div>
       <el-form :model="uploadInfo" status-icon  ref="uploadInfo" label-width="120px" class="demo-ruleForm">
         <div style="width:500px;height:45px;border:2px solid #DD700C; background-color: #DD700C;align-content: center">
-          <el-form-item prop="username" label="版权号" class="item">
+          <el-form-item  label="版权号" class="item">
             <el-input v-model="uploadInfo.recordNumber" placeholder="请输入" class="input"></el-input>
           </el-form-item>
         </div>
         <br>
         <div style="width:500px;height:45px;border:2px solid #DD700C; background-color: #DD700C;align-content: center">
-        <el-form-item prop="username" label="电影中文名" class="item">
+        <el-form-item label="电影中文名" class="item">
           <el-input v-model="uploadInfo.chineseName" placeholder="请输入" class="input"></el-input>
         </el-form-item>
         </div>
         <br>
         <div style="width:500px;height:45px;border:2px solid #DD700C; background-color: #DD700C;align-content: center">
-        <el-form-item prop="password" label="电影英文名" class="item">
+        <el-form-item  label="电影英文名" class="item">
           <el-input  placeholder="请输入" v-model="uploadInfo.englishName" class="input"></el-input>
         </el-form-item>
         </div>
@@ -30,31 +30,31 @@
 <!--          </el-radio-group>-->
 <!--        </el-form-item>-->
         <div style="width:500px;height:45px;border:2px solid #DD700C; background-color: #DD700C;align-content: center">
-        <el-form-item prop="phoneNum" label="导演" class="item">
+        <el-form-item  label="导演" class="item">
           <el-input  placeholder="请输入" v-model="uploadInfo.director" class="input"></el-input>
         </el-form-item>
         </div>
         <br>
         <div style="width:500px;height:45px;border:2px solid #DD700C; background-color: #DD700C;align-content: center">
-        <el-form-item prop="email" label="制作人" class="item">
+        <el-form-item  label="制作人" class="item">
           <el-input v-model="uploadInfo.producer" placeholder="请输入" class="input"></el-input>
         </el-form-item>
         </div>
         <br>
         <div style="width:500px;height:45px;border:2px solid #DD700C; background-color: #DD700C;align-content: center">
-        <el-form-item prop="introduction" label="发行公司" class="item">
+        <el-form-item  label="发行公司" class="item">
           <el-input  placeholder="请输入" v-model="uploadInfo.publishCompany" class="input"></el-input>
         </el-form-item>
         </div>
         <br>
         <div style="width:500px;height:45px;border:2px solid #DD700C; background-color: #DD700C;align-content: center">
-          <el-form-item prop="birth" label="发行日期" class="item">
+          <el-form-item label="发行日期" class="item">
             <el-date-picker type="date" placeholder="选择日期" v-model="uploadInfo.publishTime" class="input" style="width: 100%;"></el-date-picker>
           </el-form-item>
         </div>
         <br>
         <div style="width:500px;height:45px;border:2px solid #DD700C; background-color: #DD700C;align-content: center">
-        <el-form-item prop="location" label="国家地区" class="item">
+        <el-form-item  label="国家地区" class="item">
           <el-select v-model="uploadInfo.region" placeholder="请输入" style="width:100%" class="input">
             <el-option v-for="item in cities" :key="item.value" :label="item.label" :value="item.value"></el-option>
           </el-select>
@@ -62,13 +62,13 @@
         </div>
         <br>
         <div style="width:500px;height:45px;border:2px solid #DD700C; background-color: #DD700C;align-content: center">
-          <el-form-item prop="introduction" label="剧情" class="item">
+          <el-form-item  label="剧情" class="item">
             <el-input  placeholder="请输入" v-model="uploadInfo.plot" class="input"></el-input>
           </el-form-item>
         </div>
         <br>
         <div style="width:500px;height:45px;border:2px solid #DD700C; background-color: #DD700C;align-content: center">
-          <el-form-item prop="introduction" label="简介" class="item">
+          <el-form-item  label="简介" class="item">
             <el-input  placeholder="请输入" v-model="uploadInfo.intro" class="input"></el-input>
           </el-form-item>
         </div>
@@ -80,7 +80,7 @@
 <!--        </div>-->
         <br>
         <div style="width:500px;height:150px;border:2px solid #DD700C; background-color: #DD700C;align-content: center">
-          <el-form-item prop="introduction" label="海报" class="item" >
+          <el-form-item  label="海报" class="item" >
             <el-upload
               ref="upload"
               action="http://82.157.177.72:8081/movie-nft-server/file/uopload-image"
@@ -89,7 +89,6 @@
               class="input"
               :limit="1"
               :on-success="handle_success"
-              :before-upload="beforeUpload"
              >
               <i class="el-icon-plus"></i>
             </el-upload>
@@ -142,7 +141,7 @@ export default {
       // const rpc = new QtumRPC('http://ang:qtum@localhost:13889')
       // const rpc = new QtumRPC("http://test:test1234@152.136.130.81:13889")
       const contractInfo = require('../../static/contractInfo.json')
-      const qtum = new Qtum('http://ang:qtum@localhost:13889', contractInfo)
+      const qtum = new Qtum('http://ang:qtum@localhost:8010', contractInfo)
       // const qtum = new Qtum("http://test:test1234@152.136.130.81:13889", contractInfo);
       const contract = qtum.contract('MovieNFT.sol')
 

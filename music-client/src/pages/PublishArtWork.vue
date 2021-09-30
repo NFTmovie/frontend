@@ -66,6 +66,7 @@ import axios from 'axios'
 import mixin from '../mixins'
 import loginLogo from '../components/LoginLogo'
 import { rules, cities } from '../assets/data/form'
+import {Qtum} from 'qtumjs'
 
 export default {
   name: 'SignUp-page',
@@ -88,43 +89,21 @@ export default {
     }
   },
   methods: {
-    SignUp () {
+    async SignUp () {
+      const contractInfo = require('../../static/contractInfo.json')
+      const qtum = new Qtum('http://ang:qtum@localhost:8010', contractInfo)
+      // const qtum = new Qtum("http://test:test1234@152.136.130.81:13889", contractInfo);
+      const contract = qtum.contract('MovieNFT.sol')
+
+      const tx = await contract.send(
+        'publishMovie',
+        ['0814bfacfac50c2b0ce0688e9fba219a17fd934e', 'baidu.com/1'],
+        {senderAddress: 'qgtn7J8W6r6c2bGyD59adicoMcnrCBpeN5', amount: '0.00'})
+
+      alert('Success! Tx id:', tx.txid)
+
       let d = this.artworkInfo.publishTime
       let datetime = d.getFullYear().toString() + '-' + (d.getMonth() + 1).toString() + '-' + d.getDate().toString()
-      // let d = this.artworkInfo.publishTime
-      // let datetime = d.getFullYear().toString() + '-' + (d.getMonth() + 1).toString() + '-' + d.getDate().toString()
-      // let params = new URLSearchParams()
-      // params.append('username', thi
-      //   artworkInfo.username)
-      // params.append('password', thi
-      //   artworkInfo.password)
-      // params.append('sex', thi
-      //   artworkInfo.sex)
-      // params.append('phone_num', thi
-      //   artworkInfo.phoneNum)
-      // params.append('email', thi
-      //   artworkInfo.email)
-      // params.append('birth', datetime)
-      // params.append('introduction', thi
-      //   artworkInfo.introduction)
-      // params.append('location', thi
-      //   artworkInfo.location)
-      // params.append('avator', '/img/user.jpg')
-      // HttpManager.SignUp(params)
-      //   .then(res => {
-      //     console.log(res)
-      //     if (res.code === 1) {
-      //       _this.notify('注册成功', 'success')
-      //       setTimeout(function () {
-      //         _this.$router.push({path: '/'})
-      //       }, 2000)
-      //     } else {
-      //       _this.notify('注册失败', 'error')
-      //     }
-      //   })
-      //   .catch(err => {
-      //     console.log(err)
-      //   })
       axios.post(`http://82.157.177.72:8081/movie-nft-server/artwork/upload?artworkName=${this.artworkInfo.artworkName}&quantity=${this.artworkInfo.quantity}&price=${this.artworkInfo.price}&publishTime=${datetime}&intro=${this.artworkInfo.intro}&artworkStatus=${this.artworkInfo.artworkStatus}`)
       // then获取成功；response成功后的返回值（对象）
         .then(response => {

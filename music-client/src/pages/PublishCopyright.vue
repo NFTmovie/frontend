@@ -55,6 +55,7 @@ import axios from 'axios'
 import mixin from '../mixins'
 import loginLogo from '../components/LoginLogo'
 import { rules, cities } from '../assets/data/form'
+import {Qtum} from 'qtumjs'
 import { HttpManager } from '../api/index'
 
 export default {
@@ -90,7 +91,19 @@ export default {
     }
   },
   methods: {
-    Publish () {
+    async Publish () {
+      const contractInfo = require('../../static/contractInfo.json')
+      const qtum = new Qtum('http://ang:qtum@localhost:8010', contractInfo)
+      // const qtum = new Qtum("http://test:test1234@152.136.130.81:13889", contractInfo);
+      const contract = qtum.contract('MovieNFT.sol')
+
+      const tx = await contract.send(
+        'publishMovie',
+        ['0814bfacfac50c2b0ce0688e9fba219a17fd934e', 'baidu.com/1'],
+        {senderAddress: 'qgtn7J8W6r6c2bGyD59adicoMcnrCBpeN5', amount: '0.00'})
+
+      alert('Success! Tx id:', tx.txid)
+
       axios.post(`http://82.157.177.72:8081/movie-nft-server/movie/upload-copyright?movieId=${this.copyrightInfo.movieId}&copyrightType=${this.copyrightInfo.copyrightType}&price=${this.copyrightInfo.price}&quantity=${this.copyrightInfo.quantity}&share=${this.copyrightInfo.share}`)
         // then获取成功；response成功后的返回值（对象）
         .then(response => {

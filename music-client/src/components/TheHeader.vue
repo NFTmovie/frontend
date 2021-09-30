@@ -53,7 +53,7 @@
           </div>
         </div>
       </li>
-      <li v-show="!loginIn" :class="{active: item.name === activeName}" v-for="item in loginMsg" :key="item.type" @click="goPage(JSON.stringify(item))">{{item.name}}</li>
+      <li @click="handleLogin">{{btnContent}}</li>
     </ul>
     <!--设置-->
     <div class="header-right" v-show="loginIn">
@@ -88,7 +88,8 @@ export default {
       ERJI: ICON.ERJI,
       SOUSUO: ICON.SOUSUO,
       dropUploadMsg: dropUploadMsg,
-      dropBuyMsg: dropBuyMsg
+      dropBuyMsg: dropBuyMsg,
+      btnContent: '登录'
     }
   },
   computed: {
@@ -114,6 +115,11 @@ export default {
     }, false)
   },
   methods: {
+    handleLogin () {
+      const account = 'qgtn7J8W6r6c2bGyD59adicoMcnrCBpeN5'
+      this.btnContent = account.substring(0, 2) + '...' + account.slice(account.length - 4)
+      console.log(this.loginIn)
+    },
     goHome () {
       this.$router.push({path: '/'})
     },

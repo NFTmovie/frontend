@@ -35,9 +35,6 @@ export const dropBuyMsg = [{
 const loginMsg = [{
   name: '登录',
   path: '/login-in'
-}, {
-  name: '注册',
-  path: '/sign-up'
 }]
 
 // 用户下拉菜单项
