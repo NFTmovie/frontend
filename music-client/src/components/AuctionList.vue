@@ -4,7 +4,7 @@
       <li class="content-item" v-for="(item, index) in result.slice((this.currentPage - 1) * this.pageSize, this.currentPage * this.pageSize)" :key="index">
         <div class="kuo" @click="goAblum(item)">
           <img class="item-img" :src="url+item.cover" alt="">
-            <div class="caption"> 竞拍{{item.enddate}}结束</div>
+            <!--div class="caption"> 竞拍{{item.enddate}}结束</div-->
           <div class="mask"  @click="goAblum(item)">
             <svg class="icon" aria-hidden="true">
               <use :xlink:href="BOFANG"></use>
@@ -25,7 +25,7 @@
      .slice((this.currentPage - 1) * this.pageSize, this.currentPage * this.pageSize)" :key="index">
         <div class="kuo" @click="goAblum(result)">
           <img class="item-img" :src="url+result.cover" alt="">
-          <div class="caption"> 竞拍{{result.enddate}}结束</div>
+          <!-- class="caption"> 竞拍{{result.enddate}}结束</div-->
           <div class="mask"  @click="goAblum(result)">
             <svg class="icon" aria-hidden="true">
               <use :xlink:href="BOFANG"></use>
