@@ -13,7 +13,6 @@
     </el-carousel>
     <!--电影列表-->
     <div class="section">
-      <div class="section-title" >电影列表</div>
       <content-list
         :contentList="result.pageInfo"
         path="movie-detail"
