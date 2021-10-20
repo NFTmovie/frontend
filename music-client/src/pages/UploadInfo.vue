@@ -83,7 +83,7 @@
           <el-form-item  label="海报" class="item" >
             <el-upload
               ref="upload"
-              action="http://82.157.177.72:8081/movie-nft-server/file/uopload-image"
+              action="http://82.157.177.72:8082/movie-nft-storage/file/uopload-image"
               accept="image/png,image/gif,image/jpg,image/jpeg"
               list-type="picture-card"
               class="input"
@@ -140,17 +140,17 @@ export default {
     async Upload () {
       // const rpc = new QtumRPC('http://ang:qtum@localhost:13889')
       // const rpc = new QtumRPC("http://test:test1234@152.136.130.81:13889")
-      const contractInfo = require('../../static/contractInfo.json')
-      const qtum = new Qtum('http://ang:qtum@localhost:8010', contractInfo)
-      // const qtum = new Qtum("http://test:test1234@152.136.130.81:13889", contractInfo);
-      const contract = qtum.contract('MovieNFT.sol')
-
-      const tx = await contract.send(
-        'publishMovie',
-        ['0814bfacfac50c2b0ce0688e9fba219a17fd934e', 'baidu.com/1'],
-        {senderAddress: 'qgtn7J8W6r6c2bGyD59adicoMcnrCBpeN5', amount: '0.00'})
-
-      alert('Success! Tx id:' + tx.txid)
+      // const contractInfo = require('../../static/contractInfo.json')
+      // const qtum = new Qtum('http://ang:qtum@localhost:8010', contractInfo)
+      // // const qtum = new Qtum("http://test:test1234@152.136.130.81:13889", contractInfo);
+      // const contract = qtum.contract('MovieNFT.sol')
+      //
+      // const tx = await contract.send(
+      //   'publishMovie',
+      //   ['0814bfacfac50c2b0ce0688e9fba219a17fd934e', 'baidu.com/1'],
+      //   {senderAddress: 'qgtn7J8W6r6c2bGyD59adicoMcnrCBpeN5', amount: '0.00'})
+      //
+      // alert('Success! Tx id:' + tx.txid)
 
       let d = this.uploadInfo.publishTime
       let datetime = d.getFullYear().toString() + '-' + (d.getMonth() + 1).toString() + '-' + d.getDate().toString()

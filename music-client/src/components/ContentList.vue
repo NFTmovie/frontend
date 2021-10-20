@@ -47,15 +47,14 @@ export default {
   data () {
     return {
       BOFANG: ICON.BOFANG,
-      url: 'http://82.157.177.72:8081/',
+      url: 'http://82.157.177.72:8082/',
       currentPage: 1,
-      pageSize: 6,
+      pageSize: 6
     }
   },
   methods: {
     handleCurrentChange (val) {
       this.currentPage = val
-      console.log(this.contentList.slice((this.currentPage - 1) * this.pageSize, this.currentPage * this.pageSize))
     },
     goMovieDetail (item) {
       this.$store.commit('setTempList', item)

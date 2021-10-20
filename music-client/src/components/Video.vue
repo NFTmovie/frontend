@@ -3,19 +3,18 @@
     <ul class="section-content" v-if="copyrightMovies.length">
       <li class="content-item" v-for="(item, index) in copyrightMovies" :key="index">
         <div class="kuo" @click="goAblum(item)">
-          <img class="item-img" :src="item.picImg" alt="">
-          <div class="caption">《{{item.name}}》<br> 汇编权 </div>
+          <img class="item-img" :src="url+ copyrightMovies[index].preview" alt="">
           <div class="mask"  @click="goAblum(item)">
             <svg class="icon" aria-hidden="true">
               <use :xlink:href="BOFANG"></use>
             </svg>
           </div>
         </div>
-        <p class="item-name">所剩数量：{{item.remaining}}</p>
-        <p class="item-name">收益分成：{{item.shares}}</p>
+        <p class="item-name">所剩数量：{{2}}</p>
+        <p class="item-name">收益分成：{{1}}</p>
         <p class="item-name">{{item.releasedate}}</p>
         <button-style @onClick="buy"
-                      btn="购买" >
+                      btn="打赏" >
         </button-style>
       </li>
     </ul>
@@ -59,7 +58,7 @@ export default {
   },
   data () {
     return {
-      BOFANG: ICON.BOFANG
+      url: 'http://82.157.177.72:8082/'
     }
   },
   methods: {

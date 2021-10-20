@@ -3,8 +3,9 @@
     <ul class="section-content" v-if="result.length">
       <li class="content-item" v-for="(item, index) in result.slice((this.currentPage - 1) * this.pageSize, this.currentPage * this.pageSize)" :key="index">
         <div class="kuo" @click="goAblum(item)">
-          <img class="item-img" :src="url + item.preview" alt="">
+          <img class="item-img" :src="url + copyrightMovies[index].preview" alt="">
             <div class="caption">{{item.recordNumber}}<br> {{item.copyrightType}} </div>
+
 <!--          <div class="mask"  @click="goAblum(item)">-->
 <!--            <svg class="icon" aria-hidden="true">-->
 <!--              <use :xlink:href="BOFANG"></use>-->
@@ -14,7 +15,7 @@
         <p class="item-name">所剩数量：{{item.remainQuantity}}</p>
         <p class="item-name">收益分成：{{item.share}}</p>
         <p class="item-name">价格：{{item.price}}</p>
-        <button-style @onClick="buy"
+        <button-style v-if="type" @onClick="buy"
         btn="购买" :description= "item.price + ' QTUM'" >
         </button-style>
       </li>
@@ -30,8 +31,8 @@
         <p class="item-name">所剩数量：{{result.remainQuantity}}</p>
         <p class="item-name">收益分成：{{result.share}}</p>
         <p class="item-name">价格：{{result.price}}</p>
-        <button-style @onClick="buy"
-                      btn="购买" :description= "result.price + ' QTUM'" >
+        <button-style v-if="type" @onClick="buy"
+                      btn="购买" :description= "result.price + ' QTUM'" >{{this.type}}
         </button-style>
       </li>
     </ul>
@@ -62,30 +63,42 @@ export default {
   components: {
     ButtonStyle
   },
-  created () {
+  async created () {
     axios.get('http://82.157.177.72:8081/movie-nft-server/movie/batch-get-copyright?currentPage=1&pageSize=100')
     // then获取成功；response成功后的返回值（对象）
       .then(response => {
         this.result = response.data.pageInfo
         this.loading = true
-        console.log(this.result)
+        // setTimeout(() => {
+        //   for (let i = 0; i < this.result.length; i++) {
+        //     console.log(this.result[i].movieId)
+        //     axios.get(`http://82.157.177.72:8081/movie-nft-server/movie/movie-info?movieId=${this.result[i].movieId}`)
+        //       .then(response => {
+        //         this.previews[i] = response.data.preview
+        //         console.log(this.previews[i])
+        //       })
+        //   }
+        // }, 0)
       })
       // 获取失败
       .catch(error => {
         console.log(error)
         alert('网络错误，不能访问')
       })
+    console.log(this.type)
   },
   props: {
     copyrightMovies: Array,
-    path: String
+    path: String,
+    type: Boolean
   },
   data () {
     return {
-      url: 'http://82.157.177.72:8081/',
+      url: 'http://82.157.177.72:8082/',
       currentPage: 1,
       pageSize: 3,
-      result: ''
+      result: '',
+      previews: []
     }
   },
   methods: {

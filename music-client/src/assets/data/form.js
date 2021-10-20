@@ -41,8 +41,22 @@ const cities = [{
   value: '中国台湾',
   label: '中国台湾'
 }]
+const cinemas = [{
+  value: '万达',
+  label: '万达'
+}, {
+  value: '橙天嘉禾',
+  label: '橙天嘉禾'
+}, {
+  value: 'UME影城',
+  label: 'UME影城'
+}, {
+  value: '金逸影城',
+  label: '金逸影城'
+}]
 
 export {
   rules,
-  cities
+  cities,
+  cinemas
 }

@@ -8,7 +8,15 @@
         <div style="width:500px;height:45px;border:2px solid #DD700C; background-color: #DD700C;align-content: center">
           <el-form-item prop="username" label="选择影院" class="item">
             <el-select v-model="registerForm.location" placeholder="请输入" style="width:100%" class="input">
-              <el-option v-for="item in cities" :key="item.value" :label="item.label" :value="item.value"></el-option>
+              <el-option v-for="item in cinemas" :key="item.value" :label="item.label" :value="item.value"></el-option>
+            </el-select>
+          </el-form-item>
+        </div>
+        <br>
+        <div style="width:500px;height:45px;border:2px solid #DD700C; background-color: #DD700C;align-content: center">
+          <el-form-item  label="选择电影" class="item">
+            <el-select  v-model="registerForm.username" placeholder="请输入" style="width:100%" class="input">
+              <el-option v-for="item in res" :key="item.chineseName" :label="item.chineseName" :value="item.chineseName"></el-option>
             </el-select>
           </el-form-item>
         </div>
@@ -28,10 +36,11 @@
 </template>
 
 <script>
+import axios from 'axios'
 import Qtum from 'qtumjs'
 import mixin from '../mixins'
 import loginLogo from '../components/LoginLogo'
-import { rules, cities } from '../assets/data/form'
+import { rules, cinemas } from '../assets/data/form'
 import { HttpManager } from '../api/index'
 
 export default {
@@ -39,6 +48,18 @@ export default {
   mixins: [mixin],
   components: {
     loginLogo
+  },
+  created () {
+    axios.get('http://82.157.177.72:8081/movie-nft-server/movie/batch-get-movies?currentPage=1&pageSize=100')
+      // then获取成功；response成功后的返回值（对象）
+      .then(response => {
+        this.res = response.data.pageInfo
+      })
+      // 获取失败
+      .catch(error => {
+        console.log(error)
+        alert('网络错误，不能访问')
+      })
   },
   data () {
     return {
@@ -53,11 +74,13 @@ export default {
         location: ''
       },
       rules: rules,
-      cities: cities
+      cinemas: cinemas,
+      res: []
     }
   },
   methods: {
     async buy () {
+      alert('购买成功')
       const contractInfo = require('../../static/contractInfo.json')
       const qtum = new Qtum('http://ang:qtum@localhost:8010', contractInfo)
       // const qtum = new Qtum("http://test:test1234@152.136.130.81:13889", contractInfo);

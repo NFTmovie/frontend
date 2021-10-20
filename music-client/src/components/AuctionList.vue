@@ -3,8 +3,7 @@
     <ul class="section-content" v-if="result.length">
       <li class="content-item" v-for="(item, index) in result.slice((this.currentPage - 1) * this.pageSize, this.currentPage * this.pageSize)" :key="index">
         <div class="kuo" @click="goAblum(item)">
-          <img class="item-img" :src="url+item.cover" alt="">
-            <!--div class="caption"> 竞拍{{item.enddate}}结束</div-->
+          <img class="item-img" :src="url + item.cover" alt="">
           <div class="mask"  @click="goAblum(item)">
             <svg class="icon" aria-hidden="true">
               <use :xlink:href="BOFANG"></use>
@@ -15,7 +14,7 @@
         <p class="item-name">ID：{{item.artworkId}}</p>
         <p class="item-name">发行时间：{{item.publishTime}}</p>
 
-        <button-style @onClick="buy" class="btn"
+        <button-style v-if="type" @onClick="buy" class="btn"
         btn="竞拍" :description= "'当前 ' + item.price + ' QTUM'" >
         </button-style>
       </li>
@@ -84,18 +83,23 @@ export default {
   },
   props: {
     auctionList: Array,
-    path: String
+    path: String,
+    type: Boolean
   },
   data () {
     return {
       BOFANG: ICON.BOFANG,
-      url: 'http://82.157.177.72:8081/',
+      url: 'http://82.157.177.72:8082/',
       currentPage: 1,
       pageSize: 6,
       result: ''
     }
   },
   methods: {
+    onClick () {
+      this.price = '当前' + this.price + 'qtum'
+      this.$emit('onClick')
+    },
     async buy () {
       const contractInfo = require('../../static/contractInfo.json')
       const qtum = new Qtum('http://ang:qtum@localhost:8010', contractInfo)
@@ -122,4 +126,11 @@ export default {
 
 <style lang="scss" scoped>
 @import '../assets/css/auction-list.scss';
+@import '../assets/css/button-style.scss';
+.input>>>.el-input__inner{
+  margin-top: 2px;
+  background-color: #262626;
+  color: #DD700C;
+  border-color: #DD700C;
+}
 </style>

@@ -5,6 +5,7 @@
       <div class="section-title">电影列表</div>
       <copyright-list
         :copyrightMovies ="result.pageInfo"
+        :type="true"
         path="BuyCopyright"
       ></copyright-list>
     </div>

@@ -11,7 +11,7 @@
     .button-desc {
         color: $color-orange;
         background-color: #262626;
-        height: 80%;
+        height: 30px;
         width: 70%;
         border: #dd6f0d solid 5px;
         font-size: 32px;
@@ -30,7 +30,7 @@
         border: #dd6f0d solid 5px;
         font-size: 25px;
         width: 30%;
-        height: 80%;
+        height: 30px;
         cursor: pointer;
         .icon {
             @include icon(1.2em, $color-white);

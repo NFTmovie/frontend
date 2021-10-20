@@ -6,13 +6,13 @@
         <img :src="url + currentMovie.preview" alt="" />
       </div>
       <div class="movie-info">
-        <h1>{{ movies.chineseName }}</h1>
+        <h1>{{ currentMovie.chineseName }}</h1>
         <span>
-          导演：{{ movies.director }}
+          导演：{{ currentMovie.director }}
           <br>
-          发行日期：{{ movies.publishTime }}
+          发行日期：{{ currentMovie.publishTime }}
           <br>
-          剧情：{{ movies.intro }}
+          剧情：{{ currentMovie.plot }}
         </span>
       </div>
     </div>
@@ -29,15 +29,17 @@
     <Video :copyrightMovies ="movies"
                    path="MovieDetail" v-if="selected === 0"/>
     <CopyrightList :copyrightMovies ="movies"
+                   :type="true"
                    path="BuyCopyright" v-if="selected === 1"/>
     <AuctionList
       :auctionList ="movies"
+      :type="true"
       path="BuyArtwork/Auction" v-if="selected === 2"/>
-    <FixedList
-      :fixedList ="movies"
-      path="BuyArtwork/FixedPrice"
-      v-if="selected === 2"
-    ></FixedList>
+<!--    <FixedList-->
+<!--      :fixedList ="movies"-->
+<!--      path="BuyArtwork/FixedPrice"-->
+<!--      v-if="selected === 2"-->
+<!--    ></FixedList>-->
     <BuyTicket v-if="selected === 3"/>
   </div>
 </template>
@@ -70,7 +72,7 @@ export default {
   },
   data () {
     return {
-      movies: Array,
+      movies: '',
       count: 0, // 点赞数
       songListId: '', // 歌单ID
       value3: 0,
@@ -79,7 +81,7 @@ export default {
       songStyle: songStyle, // 歌手导航栏类别
       selected: 0,
       currentMovie: '',
-      url: 'http://82.157.177.72:8081/'
+      url: 'http://82.157.177.72:8082/'
     }
   },
   computed: {
@@ -99,11 +101,22 @@ export default {
       .then(response => {
         this.currentMovie = response.data
       })
-    this.songListId = this.tempList.id // 给歌单ID赋值
-    this.movies = this.tempList
-    this.getSongId() // 获取歌单里面的歌曲ID
-    this.getRank(this.songListId) // 获取评分
-    console.log(this.$route.params.movieId)
+      .catch(error => {
+        console.log(error)
+        alert('网络错误，不能访问')
+      })
+    axios.get('http://82.157.177.72:8081/movie-nft-server/movie/batch-get-movies?currentPage=1&pageSize=100')
+      // then获取成功；response成功后的返回值（对象）
+      .then(response => {
+        this.movies = response.data.pageInfo
+        this.loading = true
+      })
+      // 获取失败
+      .catch(error => {
+        console.log(error)
+        alert('网络错误，不能访问')
+      })
+    console.log(this.movies)
   },
   methods: {
     // 收集歌单里面的歌曲

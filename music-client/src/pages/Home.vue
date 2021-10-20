@@ -30,7 +30,7 @@ import axios from 'axios'
 export default {
   name: 'home',
   components: {
-    ContentList,
+    ContentList
   },
   data () {
     return {
@@ -45,7 +45,6 @@ export default {
       .then(response => {
         this.result = response.data
         this.loading = true
-        console.log(this.result)
       })
       // 获取失败
       .catch(error => {

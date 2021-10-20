@@ -57,7 +57,7 @@
           <el-form-item  label="封面" class="item" >
             <el-upload
               ref="upload"
-              action="http://82.157.177.72:8081/movie-nft-server/file/uopload-image"
+              action="http://82.157.177.72:8082/movie-nft-storage/file/uopload-image"
               accept="image/png,image/gif,image/jpg,image/jpeg"
               list-type="picture-card"
               class="input"

@@ -4,6 +4,7 @@
       <div class="section-title">我购买的版权</div>
       <copyright-list
         :copyrightMovies ="movieList"
+        :type="false"
         path="BuyCopyright"
       ></copyright-list>
     </div>
@@ -11,15 +12,16 @@
       <div class="section-title">我的艺术收藏</div>
       <AuctionList
         :auctionList ="movieList"
+        :type="false"
         path="BuyCopyright"
       ></AuctionList>
     </div>
-    <div class="section">
-    <FixedList
-      :fixed-list="movieList"
-      path="BuyCopyright"
-    ></FixedList>
-    </div>
+<!--    <div class="section">-->
+<!--    <FixedList-->
+<!--      :fixed-list="movieList"-->
+<!--      path="BuyCopyright"-->
+<!--    ></FixedList>-->
+<!--    </div>-->
 <!--    <div class="section">-->
 <!--      <div class="section-title">我的电影票</div>-->
 <!--      <BuyTicket-->
@@ -31,6 +33,7 @@
 </template>
 
 <script>
+import axios from 'axios'
 import CopyrightList from '../components/CopyrightList'
 import AuctionList from '../components/AuctionList'
 import FixedList from '../components/FixedList'
@@ -51,7 +54,7 @@ export default {
       pageSize: 15, // 页数
       currentPage: 1, // 当前页
       albumDatas: [],
-      movieList: movies
+      movieList: Array
     }
   },
   computed: {
@@ -61,7 +64,16 @@ export default {
     }
   },
   created () {
-    this.getAllSinger()
+    axios.get('http://82.157.177.72:8081/movie-nft-server/movie/batch-get-movies?currentPage=1&pageSize=100')
+      // then获取成功；response成功后的返回值（对象）
+      .then(response => {
+        this.movieList = response.data.pageInfo
+      })
+      // 获取失败
+      .catch(error => {
+        console.log(error)
+        alert('网络错误，不能访问')
+      })
   },
   methods: {
     // 获取当前页

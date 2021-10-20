@@ -46,7 +46,7 @@ export default {
   },
   data () {
     return {
-      url: 'http://82.157.177.72:8081/',
+      url: 'http://82.157.177.72:8082/',
       currentPage: 1,
       pageSize: 6
     }

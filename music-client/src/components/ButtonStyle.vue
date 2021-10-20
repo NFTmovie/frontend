@@ -1,6 +1,6 @@
 <template>
   <div class="header-search">
-    <el-input v-model="price" placeholder="请输入" class="input"></el-input>
+    <el-input  v-model="price" placeholder="请输入" class="input"></el-input>
       <span class="search-btn"  @click="onClick()" >
           {{btn}}
       </span>
@@ -16,6 +16,7 @@ export default {
   },
   methods: {
     onClick () {
+      alert('已消费' + this.price + 'qtum')
       this.$emit('onClick')
     }
   },
